@@ -28,397 +28,397 @@ public class Background extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
-        jPanel9 = new javax.swing.JPanel();
-        jPanel10 = new javax.swing.JPanel();
-        jPanel8 = new javax.swing.JPanel();
-        jPanel11 = new javax.swing.JPanel();
-        jPanel12 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jPanel13 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
+        Title = new javax.swing.JLabel();
+        Filter_menu = new javax.swing.JComboBox<>();
+        Searchbar = new javax.swing.JTextField();
+        Slot1 = new javax.swing.JPanel();
+        Slot2 = new javax.swing.JPanel();
+        Search_button = new javax.swing.JButton();
+        Name11 = new javax.swing.JLabel();
+        Slot3 = new javax.swing.JPanel();
+        Slot4 = new javax.swing.JPanel();
+        Slot5 = new javax.swing.JPanel();
+        Slot6 = new javax.swing.JPanel();
+        Slot8 = new javax.swing.JPanel();
+        Slot9 = new javax.swing.JPanel();
+        Slot7 = new javax.swing.JPanel();
+        Slot10 = new javax.swing.JPanel();
+        Slot11 = new javax.swing.JPanel();
+        Name4 = new javax.swing.JLabel();
+        Name7 = new javax.swing.JLabel();
+        Name3 = new javax.swing.JLabel();
+        Price2 = new javax.swing.JLabel();
+        Name5 = new javax.swing.JLabel();
+        Name8 = new javax.swing.JLabel();
+        Name9 = new javax.swing.JLabel();
+        Slot12 = new javax.swing.JPanel();
+        Name6 = new javax.swing.JLabel();
+        Name10 = new javax.swing.JLabel();
+        Name12 = new javax.swing.JLabel();
+        Name1 = new javax.swing.JLabel();
+        Name2 = new javax.swing.JLabel();
+        Price3 = new javax.swing.JLabel();
+        Price4 = new javax.swing.JLabel();
+        Price5 = new javax.swing.JLabel();
+        Price7 = new javax.swing.JLabel();
+        Price6 = new javax.swing.JLabel();
+        Price8 = new javax.swing.JLabel();
+        Price9 = new javax.swing.JLabel();
+        Price10 = new javax.swing.JLabel();
+        Price11 = new javax.swing.JLabel();
+        Price12 = new javax.swing.JLabel();
+        Price1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Steam Trading Card Marketplace");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(10, 10, 300, 60);
+        Title.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        Title.setForeground(new java.awt.Color(255, 255, 255));
+        Title.setText("Steam Trading Card Marketplace");
+        jPanel1.add(Title);
+        Title.setBounds(10, 10, 300, 60);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Card", "Set", "Game", "Price" }));
-        jPanel1.add(jComboBox1);
-        jComboBox1.setBounds(320, 30, 91, 27);
+        Filter_menu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Card", "Set", "Game", "Price" }));
+        jPanel1.add(Filter_menu);
+        Filter_menu.setBounds(320, 30, 91, 27);
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        Searchbar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                SearchbarActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField1);
-        jTextField1.setBounds(430, 30, 180, 26);
+        jPanel1.add(Searchbar);
+        Searchbar.setBounds(430, 30, 180, 26);
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 204));
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 102), 4));
+        Slot1.setBackground(new java.awt.Color(255, 255, 204));
+        Slot1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 102), 4));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout Slot1Layout = new javax.swing.GroupLayout(Slot1);
+        Slot1.setLayout(Slot1Layout);
+        Slot1Layout.setHorizontalGroup(
+            Slot1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 92, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 92, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel2);
-        jPanel2.setBounds(20, 100, 100, 100);
-
-        jPanel3.setBackground(new java.awt.Color(255, 255, 204));
-        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 102), 4));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 92, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        Slot1Layout.setVerticalGroup(
+            Slot1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 92, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel3);
-        jPanel3.setBounds(140, 100, 100, 100);
+        jPanel1.add(Slot1);
+        Slot1.setBounds(20, 100, 100, 100);
 
-        jButton1.setText("Search");
-        jPanel1.add(jButton1);
-        jButton1.setBounds(610, 30, 85, 29);
+        Slot2.setBackground(new java.awt.Color(255, 255, 204));
+        Slot2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 102), 4));
 
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Name:");
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(500, 350, 100, 20);
-
-        jPanel4.setBackground(new java.awt.Color(255, 255, 204));
-        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 102), 4));
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout Slot2Layout = new javax.swing.GroupLayout(Slot2);
+        Slot2.setLayout(Slot2Layout);
+        Slot2Layout.setHorizontalGroup(
+            Slot2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 92, Short.MAX_VALUE)
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        Slot2Layout.setVerticalGroup(
+            Slot2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 92, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel4);
-        jPanel4.setBounds(260, 100, 100, 100);
+        jPanel1.add(Slot2);
+        Slot2.setBounds(140, 100, 100, 100);
 
-        jPanel5.setBackground(new java.awt.Color(255, 255, 204));
-        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 102), 4));
+        Search_button.setText("Search");
+        jPanel1.add(Search_button);
+        Search_button.setBounds(610, 30, 85, 29);
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        Name11.setForeground(new java.awt.Color(255, 255, 255));
+        Name11.setText("Name:");
+        jPanel1.add(Name11);
+        Name11.setBounds(500, 350, 100, 20);
+
+        Slot3.setBackground(new java.awt.Color(255, 255, 204));
+        Slot3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 102), 4));
+
+        javax.swing.GroupLayout Slot3Layout = new javax.swing.GroupLayout(Slot3);
+        Slot3.setLayout(Slot3Layout);
+        Slot3Layout.setHorizontalGroup(
+            Slot3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 92, Short.MAX_VALUE)
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 92, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel5);
-        jPanel5.setBounds(380, 100, 100, 100);
-
-        jPanel6.setBackground(new java.awt.Color(255, 255, 204));
-        jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 102), 4));
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 92, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        Slot3Layout.setVerticalGroup(
+            Slot3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 92, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel6);
-        jPanel6.setBounds(500, 100, 100, 100);
+        jPanel1.add(Slot3);
+        Slot3.setBounds(260, 100, 100, 100);
 
-        jPanel7.setBackground(new java.awt.Color(255, 255, 204));
-        jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 102), 4));
+        Slot4.setBackground(new java.awt.Color(255, 255, 204));
+        Slot4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 102), 4));
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout Slot4Layout = new javax.swing.GroupLayout(Slot4);
+        Slot4.setLayout(Slot4Layout);
+        Slot4Layout.setHorizontalGroup(
+            Slot4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 92, Short.MAX_VALUE)
         );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 92, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel7);
-        jPanel7.setBounds(620, 100, 100, 100);
-
-        jPanel9.setBackground(new java.awt.Color(255, 255, 204));
-        jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 102), 4));
-
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 92, Short.MAX_VALUE)
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        Slot4Layout.setVerticalGroup(
+            Slot4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 92, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel9);
-        jPanel9.setBounds(140, 250, 100, 100);
+        jPanel1.add(Slot4);
+        Slot4.setBounds(380, 100, 100, 100);
 
-        jPanel10.setBackground(new java.awt.Color(255, 255, 204));
-        jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 102), 4));
+        Slot5.setBackground(new java.awt.Color(255, 255, 204));
+        Slot5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 102), 4));
 
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout Slot5Layout = new javax.swing.GroupLayout(Slot5);
+        Slot5.setLayout(Slot5Layout);
+        Slot5Layout.setHorizontalGroup(
+            Slot5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 92, Short.MAX_VALUE)
         );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 92, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel10);
-        jPanel10.setBounds(260, 250, 100, 100);
-
-        jPanel8.setBackground(new java.awt.Color(255, 255, 204));
-        jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 102), 4));
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 92, Short.MAX_VALUE)
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        Slot5Layout.setVerticalGroup(
+            Slot5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 92, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel8);
-        jPanel8.setBounds(20, 250, 100, 100);
+        jPanel1.add(Slot5);
+        Slot5.setBounds(500, 100, 100, 100);
 
-        jPanel11.setBackground(new java.awt.Color(255, 255, 204));
-        jPanel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 102), 4));
+        Slot6.setBackground(new java.awt.Color(255, 255, 204));
+        Slot6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 102), 4));
 
-        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
-        jPanel11.setLayout(jPanel11Layout);
-        jPanel11Layout.setHorizontalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout Slot6Layout = new javax.swing.GroupLayout(Slot6);
+        Slot6.setLayout(Slot6Layout);
+        Slot6Layout.setHorizontalGroup(
+            Slot6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 92, Short.MAX_VALUE)
         );
-        jPanel11Layout.setVerticalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 92, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(jPanel11);
-        jPanel11.setBounds(380, 250, 100, 100);
-
-        jPanel12.setBackground(new java.awt.Color(255, 255, 204));
-        jPanel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 102), 4));
-
-        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
-        jPanel12.setLayout(jPanel12Layout);
-        jPanel12Layout.setHorizontalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 92, Short.MAX_VALUE)
-        );
-        jPanel12Layout.setVerticalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        Slot6Layout.setVerticalGroup(
+            Slot6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 92, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel12);
-        jPanel12.setBounds(500, 250, 100, 100);
+        jPanel1.add(Slot6);
+        Slot6.setBounds(620, 100, 100, 100);
 
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Name:");
-        jPanel1.add(jLabel7);
-        jLabel7.setBounds(380, 200, 100, 16);
+        Slot8.setBackground(new java.awt.Color(255, 255, 204));
+        Slot8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 102), 4));
 
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("Name:");
-        jPanel1.add(jLabel14);
-        jLabel14.setBounds(20, 350, 100, 16);
-
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Name:");
-        jPanel1.add(jLabel5);
-        jLabel5.setBounds(260, 200, 100, 16);
-
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Price:");
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(140, 220, 90, 16);
-
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Name:");
-        jPanel1.add(jLabel8);
-        jLabel8.setBounds(500, 200, 100, 16);
-
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Name:");
-        jPanel1.add(jLabel9);
-        jLabel9.setBounds(140, 350, 100, 16);
-
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Name:");
-        jPanel1.add(jLabel10);
-        jLabel10.setBounds(260, 350, 100, 16);
-
-        jPanel13.setBackground(new java.awt.Color(255, 255, 204));
-        jPanel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 102), 4));
-
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout Slot8Layout = new javax.swing.GroupLayout(Slot8);
+        Slot8.setLayout(Slot8Layout);
+        Slot8Layout.setHorizontalGroup(
+            Slot8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 92, Short.MAX_VALUE)
         );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        Slot8Layout.setVerticalGroup(
+            Slot8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 92, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel13);
-        jPanel13.setBounds(620, 250, 100, 100);
+        jPanel1.add(Slot8);
+        Slot8.setBounds(140, 250, 100, 100);
 
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Name:");
-        jPanel1.add(jLabel11);
-        jLabel11.setBounds(620, 200, 100, 16);
+        Slot9.setBackground(new java.awt.Color(255, 255, 204));
+        Slot9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 102), 4));
 
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Name:");
-        jPanel1.add(jLabel12);
-        jLabel12.setBounds(380, 350, 100, 16);
+        javax.swing.GroupLayout Slot9Layout = new javax.swing.GroupLayout(Slot9);
+        Slot9.setLayout(Slot9Layout);
+        Slot9Layout.setHorizontalGroup(
+            Slot9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 92, Short.MAX_VALUE)
+        );
+        Slot9Layout.setVerticalGroup(
+            Slot9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 92, Short.MAX_VALUE)
+        );
 
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setText("Name:");
-        jPanel1.add(jLabel15);
-        jLabel15.setBounds(620, 350, 100, 20);
+        jPanel1.add(Slot9);
+        Slot9.setBounds(260, 250, 100, 100);
 
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Name:");
-        jPanel1.add(jLabel13);
-        jLabel13.setBounds(20, 200, 90, 20);
+        Slot7.setBackground(new java.awt.Color(255, 255, 204));
+        Slot7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 102), 4));
 
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("Name:");
-        jPanel1.add(jLabel16);
-        jLabel16.setBounds(140, 200, 100, 20);
+        javax.swing.GroupLayout Slot7Layout = new javax.swing.GroupLayout(Slot7);
+        Slot7.setLayout(Slot7Layout);
+        Slot7Layout.setHorizontalGroup(
+            Slot7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 92, Short.MAX_VALUE)
+        );
+        Slot7Layout.setVerticalGroup(
+            Slot7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 92, Short.MAX_VALUE)
+        );
 
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Price:");
-        jPanel1.add(jLabel6);
-        jLabel6.setBounds(260, 220, 90, 16);
+        jPanel1.add(Slot7);
+        Slot7.setBounds(20, 250, 100, 100);
 
-        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel18.setText("Price:");
-        jPanel1.add(jLabel18);
-        jLabel18.setBounds(380, 220, 90, 16);
+        Slot10.setBackground(new java.awt.Color(255, 255, 204));
+        Slot10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 102), 4));
 
-        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel17.setText("Price:");
-        jPanel1.add(jLabel17);
-        jLabel17.setBounds(500, 220, 90, 16);
+        javax.swing.GroupLayout Slot10Layout = new javax.swing.GroupLayout(Slot10);
+        Slot10.setLayout(Slot10Layout);
+        Slot10Layout.setHorizontalGroup(
+            Slot10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 92, Short.MAX_VALUE)
+        );
+        Slot10Layout.setVerticalGroup(
+            Slot10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 92, Short.MAX_VALUE)
+        );
 
-        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel19.setText("Price:");
-        jPanel1.add(jLabel19);
-        jLabel19.setBounds(20, 370, 90, 16);
+        jPanel1.add(Slot10);
+        Slot10.setBounds(380, 250, 100, 100);
 
-        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel20.setText("Price:");
-        jPanel1.add(jLabel20);
-        jLabel20.setBounds(620, 220, 90, 16);
+        Slot11.setBackground(new java.awt.Color(255, 255, 204));
+        Slot11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 102), 4));
 
-        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel21.setText("Price:");
-        jPanel1.add(jLabel21);
-        jLabel21.setBounds(140, 370, 90, 16);
+        javax.swing.GroupLayout Slot11Layout = new javax.swing.GroupLayout(Slot11);
+        Slot11.setLayout(Slot11Layout);
+        Slot11Layout.setHorizontalGroup(
+            Slot11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 92, Short.MAX_VALUE)
+        );
+        Slot11Layout.setVerticalGroup(
+            Slot11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 92, Short.MAX_VALUE)
+        );
 
-        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel22.setText("Price:");
-        jPanel1.add(jLabel22);
-        jLabel22.setBounds(260, 370, 90, 16);
+        jPanel1.add(Slot11);
+        Slot11.setBounds(500, 250, 100, 100);
 
-        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel24.setText("Price:");
-        jPanel1.add(jLabel24);
-        jLabel24.setBounds(380, 370, 90, 16);
+        Name4.setForeground(new java.awt.Color(255, 255, 255));
+        Name4.setText("Name:");
+        jPanel1.add(Name4);
+        Name4.setBounds(380, 200, 100, 16);
 
-        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel23.setText("Price:");
-        jPanel1.add(jLabel23);
-        jLabel23.setBounds(500, 370, 90, 16);
+        Name7.setForeground(new java.awt.Color(255, 255, 255));
+        Name7.setText("Name:");
+        jPanel1.add(Name7);
+        Name7.setBounds(20, 350, 100, 16);
 
-        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel25.setText("Price:");
-        jPanel1.add(jLabel25);
-        jLabel25.setBounds(620, 370, 90, 16);
+        Name3.setForeground(new java.awt.Color(255, 255, 255));
+        Name3.setText("Name:");
+        jPanel1.add(Name3);
+        Name3.setBounds(260, 200, 100, 16);
 
-        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel26.setText("Price:");
-        jPanel1.add(jLabel26);
-        jLabel26.setBounds(20, 220, 90, 16);
+        Price2.setForeground(new java.awt.Color(255, 255, 255));
+        Price2.setText("Price:");
+        jPanel1.add(Price2);
+        Price2.setBounds(140, 220, 90, 16);
+
+        Name5.setForeground(new java.awt.Color(255, 255, 255));
+        Name5.setText("Name:");
+        jPanel1.add(Name5);
+        Name5.setBounds(500, 200, 100, 16);
+
+        Name8.setForeground(new java.awt.Color(255, 255, 255));
+        Name8.setText("Name:");
+        jPanel1.add(Name8);
+        Name8.setBounds(140, 350, 100, 16);
+
+        Name9.setForeground(new java.awt.Color(255, 255, 255));
+        Name9.setText("Name:");
+        jPanel1.add(Name9);
+        Name9.setBounds(260, 350, 100, 16);
+
+        Slot12.setBackground(new java.awt.Color(255, 255, 204));
+        Slot12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 102), 4));
+
+        javax.swing.GroupLayout Slot12Layout = new javax.swing.GroupLayout(Slot12);
+        Slot12.setLayout(Slot12Layout);
+        Slot12Layout.setHorizontalGroup(
+            Slot12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 92, Short.MAX_VALUE)
+        );
+        Slot12Layout.setVerticalGroup(
+            Slot12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 92, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(Slot12);
+        Slot12.setBounds(620, 250, 100, 100);
+
+        Name6.setForeground(new java.awt.Color(255, 255, 255));
+        Name6.setText("Name:");
+        jPanel1.add(Name6);
+        Name6.setBounds(620, 200, 100, 16);
+
+        Name10.setForeground(new java.awt.Color(255, 255, 255));
+        Name10.setText("Name:");
+        jPanel1.add(Name10);
+        Name10.setBounds(380, 350, 100, 16);
+
+        Name12.setForeground(new java.awt.Color(255, 255, 255));
+        Name12.setText("Name:");
+        jPanel1.add(Name12);
+        Name12.setBounds(620, 350, 100, 20);
+
+        Name1.setForeground(new java.awt.Color(255, 255, 255));
+        Name1.setText("Name:");
+        jPanel1.add(Name1);
+        Name1.setBounds(20, 200, 90, 20);
+
+        Name2.setForeground(new java.awt.Color(255, 255, 255));
+        Name2.setText("Name:");
+        jPanel1.add(Name2);
+        Name2.setBounds(140, 200, 100, 20);
+
+        Price3.setForeground(new java.awt.Color(255, 255, 255));
+        Price3.setText("Price:");
+        jPanel1.add(Price3);
+        Price3.setBounds(260, 220, 90, 16);
+
+        Price4.setForeground(new java.awt.Color(255, 255, 255));
+        Price4.setText("Price:");
+        jPanel1.add(Price4);
+        Price4.setBounds(380, 220, 90, 16);
+
+        Price5.setForeground(new java.awt.Color(255, 255, 255));
+        Price5.setText("Price:");
+        jPanel1.add(Price5);
+        Price5.setBounds(500, 220, 90, 16);
+
+        Price7.setForeground(new java.awt.Color(255, 255, 255));
+        Price7.setText("Price:");
+        jPanel1.add(Price7);
+        Price7.setBounds(20, 370, 90, 16);
+
+        Price6.setForeground(new java.awt.Color(255, 255, 255));
+        Price6.setText("Price:");
+        jPanel1.add(Price6);
+        Price6.setBounds(620, 220, 90, 16);
+
+        Price8.setForeground(new java.awt.Color(255, 255, 255));
+        Price8.setText("Price:");
+        jPanel1.add(Price8);
+        Price8.setBounds(140, 370, 90, 16);
+
+        Price9.setForeground(new java.awt.Color(255, 255, 255));
+        Price9.setText("Price:");
+        jPanel1.add(Price9);
+        Price9.setBounds(260, 370, 90, 16);
+
+        Price10.setForeground(new java.awt.Color(255, 255, 255));
+        Price10.setText("Price:");
+        jPanel1.add(Price10);
+        Price10.setBounds(380, 370, 90, 16);
+
+        Price11.setForeground(new java.awt.Color(255, 255, 255));
+        Price11.setText("Price:");
+        jPanel1.add(Price11);
+        Price11.setBounds(500, 370, 90, 16);
+
+        Price12.setForeground(new java.awt.Color(255, 255, 255));
+        Price12.setText("Price:");
+        jPanel1.add(Price12);
+        Price12.setBounds(620, 370, 90, 16);
+
+        Price1.setForeground(new java.awt.Color(255, 255, 255));
+        Price1.setText("Price:");
+        jPanel1.add(Price1);
+        Price1.setBounds(20, 220, 90, 16);
 
         jLabel2.setIcon(new javax.swing.ImageIcon("/Users/manuelpartida/Desktop/Screen Shot 2018-04-15 at 11.23.48 AM.png")); // NOI18N
         jPanel1.add(jLabel2);
@@ -438,9 +438,9 @@ public class Background extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void SearchbarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchbarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_SearchbarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -478,47 +478,47 @@ public class Background extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
+    private javax.swing.JComboBox<String> Filter_menu;
+    private javax.swing.JLabel Name1;
+    private javax.swing.JLabel Name10;
+    private javax.swing.JLabel Name11;
+    private javax.swing.JLabel Name12;
+    private javax.swing.JLabel Name2;
+    private javax.swing.JLabel Name3;
+    private javax.swing.JLabel Name4;
+    private javax.swing.JLabel Name5;
+    private javax.swing.JLabel Name6;
+    private javax.swing.JLabel Name7;
+    private javax.swing.JLabel Name8;
+    private javax.swing.JLabel Name9;
+    private javax.swing.JLabel Price1;
+    private javax.swing.JLabel Price10;
+    private javax.swing.JLabel Price11;
+    private javax.swing.JLabel Price12;
+    private javax.swing.JLabel Price2;
+    private javax.swing.JLabel Price3;
+    private javax.swing.JLabel Price4;
+    private javax.swing.JLabel Price5;
+    private javax.swing.JLabel Price6;
+    private javax.swing.JLabel Price7;
+    private javax.swing.JLabel Price8;
+    private javax.swing.JLabel Price9;
+    private javax.swing.JButton Search_button;
+    private javax.swing.JTextField Searchbar;
+    private javax.swing.JPanel Slot1;
+    private javax.swing.JPanel Slot10;
+    private javax.swing.JPanel Slot11;
+    private javax.swing.JPanel Slot12;
+    private javax.swing.JPanel Slot2;
+    private javax.swing.JPanel Slot3;
+    private javax.swing.JPanel Slot4;
+    private javax.swing.JPanel Slot5;
+    private javax.swing.JPanel Slot6;
+    private javax.swing.JPanel Slot7;
+    private javax.swing.JPanel Slot8;
+    private javax.swing.JPanel Slot9;
+    private javax.swing.JLabel Title;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
