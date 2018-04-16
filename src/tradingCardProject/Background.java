@@ -3,8 +3,49 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tradingCardProject;
+package Steam_Card_Marketplace;
 
+
+
+
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+/**
+ *
+ * @author 1matt
+ */
+class ImagePanel extends JPanel {
+
+  private Image img;
+
+  public ImagePanel(String img) {
+    this(new ImageIcon(img).getImage());
+  }
+
+  public ImagePanel(Image img) {
+    this.img = img;
+    Dimension size = new Dimension(img.getWidth(null), img.getHeight(null));
+    setPreferredSize(size);
+    setMinimumSize(size);
+    setMaximumSize(size);
+    setSize(size);
+    setLayout(null);
+  }
+
+  public void paintComponent(Graphics g) {
+	int baslangciX = 0;
+    int baslangciY = 0;
+        
+    int bitisX = getSize().width;
+    int bitisY= getSize().height;
+	g.drawImage(img,baslangciX,baslangciY,bitisX,bitisY,null);
+  }
+}
 /**
  *
  * @author manuelpartida
@@ -27,7 +68,7 @@ public class Background extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jPanel1 = new ImagePanel(new ImageIcon("/Users/manuelpartida/Desktop/background1.png").getImage());
         Title = new javax.swing.JLabel();
         Filter_menu = new javax.swing.JComboBox<>();
         Searchbar = new javax.swing.JTextField();
@@ -68,7 +109,6 @@ public class Background extends javax.swing.JFrame {
         Price11 = new javax.swing.JLabel();
         Price12 = new javax.swing.JLabel();
         Price1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -420,19 +460,15 @@ public class Background extends javax.swing.JFrame {
         jPanel1.add(Price1);
         Price1.setBounds(20, 220, 90, 16);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/manuelpartida/Desktop/Screen Shot 2018-04-15 at 11.23.48 AM.png")); // NOI18N
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(0, 0, 750, 420);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 732, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 733, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE)
         );
 
         pack();
@@ -518,7 +554,6 @@ public class Background extends javax.swing.JFrame {
     private javax.swing.JPanel Slot8;
     private javax.swing.JPanel Slot9;
     private javax.swing.JLabel Title;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
