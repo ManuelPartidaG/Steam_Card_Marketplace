@@ -5,6 +5,7 @@
  */
 package steamtradingcardproject.view;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -27,7 +28,7 @@ public class cardView extends javax.swing.JPanel {
     
     public cardView() {
         initComponents();
-        this.setPreferredSize(new Dimension(706, 384));
+        //this.setPreferredSize(new Dimension(700, 400));
         this.setDoubleBuffered(true);
         this.setOpaque(false);
         winClose = new javax.swing.ImageIcon(getClass().getResource("/steamtradingcardproject/resources/win32_win_close.png"));
@@ -36,7 +37,7 @@ public class cardView extends javax.swing.JPanel {
         winMinimizeHover = new javax.swing.ImageIcon(getClass().getResource("/steamtradingcardproject/resources/win32_win_min_hover.png"));
         winMaximize = new javax.swing.ImageIcon(getClass().getResource("/steamtradingcardproject/resources/win32_win_max.png"));
         winMaximizeHover = new javax.swing.ImageIcon(getClass().getResource("/steamtradingcardproject/resources/win32_win_max_hover.png"));
-        this.image = new ImageIcon(getClass().getResource("/steamtradingcardproject/resources/projectTemplate.png")).getImage();
+        this.image = new ImageIcon(getClass().getResource("/steamtradingcardproject/resources/clienttexture2.png")).getImage();
         
         this.controller = new Controller();
     }
@@ -56,11 +57,16 @@ public class cardView extends javax.swing.JPanel {
         dragWindow = new javax.swing.JLabel();
 
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setPreferredSize(new java.awt.Dimension(706, 384));
+        setPreferredSize(new java.awt.Dimension(700, 400));
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentResized(java.awt.event.ComponentEvent evt) {
+                windowResizeHandler(evt);
+            }
+        });
         setLayout(null);
 
         closeWindow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/steamtradingcardproject/resources/win32_win_close.png"))); // NOI18N
-        closeWindow.setText("jLabel1");
+        closeWindow.setToolTipText("");
         closeWindow.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 closeWindowHandler(evt);
@@ -73,10 +79,9 @@ public class cardView extends javax.swing.JPanel {
             }
         });
         add(closeWindow);
-        closeWindow.setBounds(680, 10, 14, 18);
+        closeWindow.setBounds(680, 10, 14, 15);
 
         minimizeWindow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/steamtradingcardproject/resources/win32_win_min.png"))); // NOI18N
-        minimizeWindow.setText("jLabel3");
         minimizeWindow.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 minimizeWindowHandler(evt);
@@ -89,10 +94,9 @@ public class cardView extends javax.swing.JPanel {
             }
         });
         add(minimizeWindow);
-        minimizeWindow.setBounds(640, 10, 14, 18);
+        minimizeWindow.setBounds(640, 10, 14, 15);
 
         maximizeWindow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/steamtradingcardproject/resources/win32_win_max.png"))); // NOI18N
-        maximizeWindow.setText("jLabel2");
         maximizeWindow.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 maximizeWindowHandler(evt);
@@ -105,13 +109,13 @@ public class cardView extends javax.swing.JPanel {
             }
         });
         add(maximizeWindow);
-        maximizeWindow.setBounds(660, 10, 14, 18);
+        maximizeWindow.setBounds(660, 10, 14, 15);
 
         dragWindow.setText("    Steam Trading Card Project");
         dragWindow.setAlignmentY(0.0F);
-        dragWindow.setMaximumSize(new java.awt.Dimension(600, 30));
-        dragWindow.setMinimumSize(new java.awt.Dimension(201, 18));
-        dragWindow.setPreferredSize(new java.awt.Dimension(600, 30));
+        dragWindow.setMaximumSize(null);
+        dragWindow.setMinimumSize(null);
+        dragWindow.setPreferredSize(new java.awt.Dimension(700, 30));
         dragWindow.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 dragWindowMouseDragged(evt);
@@ -123,7 +127,7 @@ public class cardView extends javax.swing.JPanel {
             }
         });
         add(dragWindow);
-        dragWindow.setBounds(0, 0, 710, 30);
+        dragWindow.setBounds(0, 0, 700, 30);
     }// </editor-fold>//GEN-END:initComponents
 
     private void closeWindowHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeWindowHandler
@@ -188,11 +192,28 @@ public class cardView extends javax.swing.JPanel {
         xMouse = evt.getX();
         yMouse = evt.getY();
     }//GEN-LAST:event_dragWindowMousePressed
+
+    private void windowResizeHandler(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_windowResizeHandler
+        // TODO add your handling code here:
+        int panelWidth = getSize().width;
+        closeWindow.setBounds(panelWidth - 20, 10, 14, 18);
+        maximizeWindow.setBounds(panelWidth - 40, 10, 14, 18);
+        minimizeWindow.setBounds(panelWidth - 60, 10, 14, 18);
+        dragWindow.setBounds(0, 0, panelWidth, 30);
+    }//GEN-LAST:event_windowResizeHandler
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        Graphics2D g2D = (Graphics2D) g;
-        g2D.drawImage(this.image, 0, 0, null);
+        //Graphics2D g2D = (Graphics2D) g;
+        int panelWidth = getSize().width;
+        int panelHieght = getSize().height;
+        g.setColor(new Color(38,38,38));
+        g.fillRect(0, 0, panelWidth, panelHieght);
+        g.setColor(new Color(22,22,22));
+        g.fillRect(12, 46, panelWidth - 24, panelHieght - 75);
+        g.setColor(new Color(27, 40, 56));
+        g.fillRect(14, 48, panelWidth - 28, panelHieght - 79);
+        g.drawImage(this.image, 0, 0, panelWidth, 60, null);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

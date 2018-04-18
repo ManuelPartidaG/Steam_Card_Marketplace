@@ -8,6 +8,7 @@ package steamtradingcardproject;
 import java.awt.Color;
 import javax.swing.JFrame;
 import steamtradingcardproject.view.cardView;
+//import steamtradingcardproject.lib.ComponentResizer;
 
 /**
  *
@@ -26,8 +27,8 @@ public class MainGUI {
         guiFrame.pack();
         guiFrame.setBackground(new Color(0, 255, 0, 0));
         guiFrame.setLocationRelativeTo(null);
-        ComponentResizer cr = new ComponentResizer();
-        cr.registerComponent(guiFrame);
+        //ComponentResizer cr = new ComponentResizer();
+        //cr.registerComponent(guiFrame);
         guiFrame.setVisible(true);
     }
     
