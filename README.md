@@ -1,4 +1,4 @@
-#***This is for educational purpose only please don't DMCA***
+***This is for educational purpose only please don't DMCA***
 
 # Steam_Card_Marketplace
 
