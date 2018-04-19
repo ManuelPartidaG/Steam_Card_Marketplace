@@ -26,4 +26,9 @@ public class Controller {
         JFrame frame = (JFrame) topLevelAncestor;
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
+    
+    public void handleRestoreAction(Container topLevelAncestor) {
+        JFrame frame = (JFrame) topLevelAncestor;
+        frame.setExtendedState(JFrame.NORMAL);
+    }
 }

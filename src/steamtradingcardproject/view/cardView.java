@@ -7,9 +7,13 @@ package steamtradingcardproject.view;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import steamtradingcardproject.controller.Controller;
@@ -21,14 +25,17 @@ import steamtradingcardproject.controller.Controller;
 public class cardView extends javax.swing.JPanel {
     
     private final Image image;
-    private final ImageIcon winClose, winCloseHover, winMinimize, winMinimizeHover, winMaximize, winMaximizeHover;
+    private final JFrame guiFrame;
+    private final ImageIcon winClose, winCloseHover, winMinimize, winMinimizeHover, winMaximize, winMaximizeHover, winRestore, winRestoreHover;
     private final Controller controller;
+    private int prevWindowState;
     private int xMouse;
     private int yMouse;
     
-    public cardView() {
+    public cardView(JFrame topLevelFrame) {
+        guiFrame = topLevelFrame;
+        prevWindowState = Frame.NORMAL;
         initComponents();
-        //this.setPreferredSize(new Dimension(700, 400));
         this.setDoubleBuffered(true);
         this.setOpaque(false);
         winClose = new javax.swing.ImageIcon(getClass().getResource("/steamtradingcardproject/resources/win32_win_close.png"));
@@ -37,9 +44,50 @@ public class cardView extends javax.swing.JPanel {
         winMinimizeHover = new javax.swing.ImageIcon(getClass().getResource("/steamtradingcardproject/resources/win32_win_min_hover.png"));
         winMaximize = new javax.swing.ImageIcon(getClass().getResource("/steamtradingcardproject/resources/win32_win_max.png"));
         winMaximizeHover = new javax.swing.ImageIcon(getClass().getResource("/steamtradingcardproject/resources/win32_win_max_hover.png"));
+        winRestore = new javax.swing.ImageIcon(getClass().getResource("/steamtradingcardproject/resources/win32_win_restore.png"));
+        winRestoreHover = new javax.swing.ImageIcon(getClass().getResource("/steamtradingcardproject/resources/win32_win_restore_hover.png"));
         this.image = new ImageIcon(getClass().getResource("/steamtradingcardproject/resources/clienttexture2.png")).getImage();
-        
+        restoreWindow.setEnabled(false);
+        restoreWindow.setVisible(false);
         this.controller = new Controller();
+       guiFrame.addWindowListener(new WindowListener() {
+            //made a bunch of listeners by default since WindowListener is not an abstract class just ignore i guess
+            @Override
+            public void windowIconified(WindowEvent e) {
+            }
+            @Override
+            public void windowOpened(WindowEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void windowClosed(WindowEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void windowDeiconified(WindowEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                guiFrame.setExtendedState(prevWindowState);
+                minimizeWindow.setIcon(winMinimize);
+                repaint();
+            }
+
+            @Override
+            public void windowActivated(WindowEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public void windowDeactivated(WindowEvent e) {
+                //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        });
     }
 
     /**
@@ -54,6 +102,7 @@ public class cardView extends javax.swing.JPanel {
         closeWindow = new javax.swing.JLabel();
         minimizeWindow = new javax.swing.JLabel();
         maximizeWindow = new javax.swing.JLabel();
+        restoreWindow = new javax.swing.JLabel();
         dragWindow = new javax.swing.JLabel();
 
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -111,6 +160,22 @@ public class cardView extends javax.swing.JPanel {
         add(maximizeWindow);
         maximizeWindow.setBounds(660, 10, 14, 15);
 
+        restoreWindow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/steamtradingcardproject/resources/win32_win_restore.png"))); // NOI18N
+        restoreWindow.setPreferredSize(new java.awt.Dimension(15, 15));
+        restoreWindow.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                restoreWindowHandler(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                restoreWindowHoverOutHandler(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                restoreWindowHoverInHandler(evt);
+            }
+        });
+        add(restoreWindow);
+        restoreWindow.setBounds(660, 10, 14, 15);
+
         dragWindow.setText("    Steam Trading Card Project");
         dragWindow.setAlignmentY(0.0F);
         dragWindow.setMaximumSize(null);
@@ -148,6 +213,10 @@ public class cardView extends javax.swing.JPanel {
     private void maximizeWindowHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_maximizeWindowHandler
         // TODO add your handling code here:
         this.controller.handleMaximizeAction(getTopLevelAncestor());
+        maximizeWindow.setEnabled(false);
+        maximizeWindow.setVisible(false);
+        restoreWindow.setEnabled(true);
+        restoreWindow.setVisible(true);
     }//GEN-LAST:event_maximizeWindowHandler
 
     private void maximizeWindowHoverInHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_maximizeWindowHoverInHandler
@@ -162,7 +231,7 @@ public class cardView extends javax.swing.JPanel {
 
     private void minimizeWindowHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeWindowHandler
         // TODO add your handling code here:
-        minimizeWindow.setIcon(winMinimize);                                    // this is not working for some reason idk why
+        prevWindowState = guiFrame.getExtendedState();
         this.controller.handleMinimizeAction(getTopLevelAncestor());
     }//GEN-LAST:event_minimizeWindowHandler
 
@@ -198,9 +267,29 @@ public class cardView extends javax.swing.JPanel {
         int panelWidth = getSize().width;
         closeWindow.setBounds(panelWidth - 20, 10, 14, 18);
         maximizeWindow.setBounds(panelWidth - 40, 10, 14, 18);
+        restoreWindow.setBounds(panelWidth - 40, 10, 14, 18);
         minimizeWindow.setBounds(panelWidth - 60, 10, 14, 18);
         dragWindow.setBounds(0, 0, panelWidth, 30);
     }//GEN-LAST:event_windowResizeHandler
+
+    private void restoreWindowHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_restoreWindowHandler
+        // TODO add your handling code here:
+        this.controller.handleRestoreAction(getTopLevelAncestor());
+        maximizeWindow.setEnabled(true);
+        maximizeWindow.setVisible(true);
+        restoreWindow.setEnabled(false);
+        restoreWindow.setVisible(false);
+    }//GEN-LAST:event_restoreWindowHandler
+
+    private void restoreWindowHoverInHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_restoreWindowHoverInHandler
+        // TODO add your handling code here:
+        restoreWindow.setIcon(winRestoreHover);
+    }//GEN-LAST:event_restoreWindowHoverInHandler
+
+    private void restoreWindowHoverOutHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_restoreWindowHoverOutHandler
+        // TODO add your handling code here:
+        restoreWindow.setIcon(winRestore);
+    }//GEN-LAST:event_restoreWindowHoverOutHandler
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -221,5 +310,6 @@ public class cardView extends javax.swing.JPanel {
     private javax.swing.JLabel dragWindow;
     private javax.swing.JLabel maximizeWindow;
     private javax.swing.JLabel minimizeWindow;
+    private javax.swing.JLabel restoreWindow;
     // End of variables declaration//GEN-END:variables
 }
