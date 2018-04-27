@@ -241,6 +241,8 @@ public class cardView extends javax.swing.JPanel {
         maximizeWindow.setVisible(false);
         restoreWindow.setEnabled(true);
         restoreWindow.setVisible(true);
+        windowResizer.setEnabled(false);
+        windowResizer.setVisible(false);
     }//GEN-LAST:event_maximizeWindowHandler
 
     private void maximizeWindowHoverInHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_maximizeWindowHoverInHandler
@@ -302,6 +304,8 @@ public class cardView extends javax.swing.JPanel {
         maximizeWindow.setVisible(true);
         restoreWindow.setEnabled(false);
         restoreWindow.setVisible(false);
+        windowResizer.setEnabled(true);
+        windowResizer.setVisible(true);
     }//GEN-LAST:event_restoreWindowHandler
 
     private void restoreWindowHoverInHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_restoreWindowHoverInHandler
