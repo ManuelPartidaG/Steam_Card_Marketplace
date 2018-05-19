@@ -16,6 +16,7 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.GroupLayout;
 import steamtradingcardproject.controller.Controller;
 
 /**
@@ -91,9 +92,6 @@ public class cardView extends javax.swing.JPanel {
                 //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
         });
-       
-       
-       
     }
 
     /**
@@ -104,6 +102,7 @@ public class cardView extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         closeWindow = new javax.swing.JLabel();
         minimizeWindow = new javax.swing.JLabel();
@@ -111,6 +110,9 @@ public class cardView extends javax.swing.JPanel {
         restoreWindow = new javax.swing.JLabel();
         dragWindow = new javax.swing.JLabel();
         windowResizer = new javax.swing.JLabel();
+        MainPanel = new javax.swing.JPanel();
+        //MainPanel.setVisible(false);
+        cardPanel = new javax.swing.JPanel();
 
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setPreferredSize(new java.awt.Dimension(700, 400));
@@ -127,15 +129,15 @@ public class cardView extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 closeWindowHandler(evt);
             }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                closeWindowHoverInHandler(evt);
-            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 closeWindowHoverOutHandler(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                closeWindowHoverInHandler(evt);
+            }
         });
         add(closeWindow);
-        closeWindow.setBounds(800, 10, 30, 20);
+        closeWindow.setBounds(680, 10, 14, 15);
 
         minimizeWindow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/steamtradingcardproject/resources/win32_win_min.png"))); // NOI18N
         minimizeWindow.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -150,7 +152,7 @@ public class cardView extends javax.swing.JPanel {
             }
         });
         add(minimizeWindow);
-        minimizeWindow.setBounds(760, 0, 20, 30);
+        minimizeWindow.setBounds(640, 10, 14, 15);
 
         maximizeWindow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/steamtradingcardproject/resources/win32_win_max.png"))); // NOI18N
         maximizeWindow.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -165,7 +167,7 @@ public class cardView extends javax.swing.JPanel {
             }
         });
         add(maximizeWindow);
-        maximizeWindow.setBounds(780, 10, 20, 20);
+        maximizeWindow.setBounds(660, 10, 14, 15);
 
         restoreWindow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/steamtradingcardproject/resources/win32_win_restore.png"))); // NOI18N
         restoreWindow.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -180,7 +182,7 @@ public class cardView extends javax.swing.JPanel {
             }
         });
         add(restoreWindow);
-        restoreWindow.setBounds(780, 10, 10, 20);
+        restoreWindow.setBounds(660, 10, 14, 15);
 
         dragWindow.setText("    Steam Trading Card Project");
         dragWindow.setAlignmentY(0.0F);
@@ -198,7 +200,7 @@ public class cardView extends javax.swing.JPanel {
             }
         });
         add(dragWindow);
-        dragWindow.setBounds(130, 0, 600, 40);
+        dragWindow.setBounds(0, 0, 700, 30);
 
         windowResizer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/steamtradingcardproject/resources/resizer.png"))); // NOI18N
         windowResizer.setCursor(new java.awt.Cursor(java.awt.Cursor.SE_RESIZE_CURSOR));
@@ -219,26 +221,38 @@ public class cardView extends javax.swing.JPanel {
             }
         });
         add(windowResizer);
-        windowResizer.setBounds(810, 390, 20, 30);
+        windowResizer.setBounds(685, 382, 14, 14);
+
+        MainPanel.setLayout(new java.awt.GridBagLayout());
+
+        cardPanel.setBackground(new java.awt.Color(10, 10, 10));
+        cardPanel.setName(""); // NOI18N
+        cardPanel.setRequestFocusEnabled(false);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 326;
+        gridBagConstraints.ipady = 311;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        MainPanel.add(cardPanel, gridBagConstraints);
+
+        add(MainPanel);
+        MainPanel.setBounds(14, 48, 672, 321);
     }// </editor-fold>//GEN-END:initComponents
 
     private void closeWindowHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeWindowHandler
-        // TODO add your handling code here:
         this.controller.handleClose();
     }//GEN-LAST:event_closeWindowHandler
 
     private void closeWindowHoverInHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeWindowHoverInHandler
-        // TODO add your handling code here:
         closeWindow.setIcon(winCloseHover);
     }//GEN-LAST:event_closeWindowHoverInHandler
 
     private void closeWindowHoverOutHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeWindowHoverOutHandler
-        // TODO add your handling code here:
         closeWindow.setIcon(winClose);
     }//GEN-LAST:event_closeWindowHoverOutHandler
 
     private void maximizeWindowHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_maximizeWindowHandler
-        // TODO add your handling code here:
         this.controller.handleMaximizeAction(getTopLevelAncestor());
         maximizeWindow.setEnabled(false);
         maximizeWindow.setVisible(false);
@@ -249,33 +263,27 @@ public class cardView extends javax.swing.JPanel {
     }//GEN-LAST:event_maximizeWindowHandler
 
     private void maximizeWindowHoverInHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_maximizeWindowHoverInHandler
-        // TODO add your handling code here:
         maximizeWindow.setIcon(winMaximizeHover);
     }//GEN-LAST:event_maximizeWindowHoverInHandler
 
     private void maximizeWindowHoverOutHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_maximizeWindowHoverOutHandler
-        // TODO add your handling code here:
         maximizeWindow.setIcon(winMaximize);
     }//GEN-LAST:event_maximizeWindowHoverOutHandler
 
     private void minimizeWindowHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeWindowHandler
-        // TODO add your handling code here:
         prevWindowState = guiFrame.getExtendedState();
         this.controller.handleMinimizeAction(getTopLevelAncestor());
     }//GEN-LAST:event_minimizeWindowHandler
 
     private void minimizeWindowHoverInHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeWindowHoverInHandler
-        // TODO add your handling code here:
         minimizeWindow.setIcon(winMinimizeHover);
     }//GEN-LAST:event_minimizeWindowHoverInHandler
 
     private void minimizeWindowHoverOutHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeWindowHoverOutHandler
-        // TODO add your handling code here:
         minimizeWindow.setIcon(winMinimize);
     }//GEN-LAST:event_minimizeWindowHoverOutHandler
 
     private void dragWindowMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dragWindowMouseDragged
-        // TODO add your handling code here:
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
         getTopLevelAncestor().setLocation(x - xMouse, y - yMouse);
@@ -283,15 +291,14 @@ public class cardView extends javax.swing.JPanel {
     }//GEN-LAST:event_dragWindowMouseDragged
 
     private void dragWindowMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dragWindowMousePressed
-        // TODO add your handling code here:
         xMouse = evt.getX();
         yMouse = evt.getY();
     }//GEN-LAST:event_dragWindowMousePressed
 
     private void windowResizeHandler(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_windowResizeHandler
-        // TODO add your handling code here:
         int panelWidth = getSize().width;
         int panelHeight = getSize().height;
+        MainPanel.setBounds(14, 48, panelWidth - 28, panelHeight - 79);
         closeWindow.setBounds(panelWidth - 20, 10, 14, 18);
         maximizeWindow.setBounds(panelWidth - 40, 10, 14, 18);
         restoreWindow.setBounds(panelWidth - 40, 10, 14, 18);
@@ -301,7 +308,6 @@ public class cardView extends javax.swing.JPanel {
     }//GEN-LAST:event_windowResizeHandler
 
     private void restoreWindowHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_restoreWindowHandler
-        // TODO add your handling code here:
         this.controller.handleRestoreAction(getTopLevelAncestor());
         maximizeWindow.setEnabled(true);
         maximizeWindow.setVisible(true);
@@ -312,34 +318,28 @@ public class cardView extends javax.swing.JPanel {
     }//GEN-LAST:event_restoreWindowHandler
 
     private void restoreWindowHoverInHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_restoreWindowHoverInHandler
-        // TODO add your handling code here:
         restoreWindow.setIcon(winRestoreHover);
     }//GEN-LAST:event_restoreWindowHoverInHandler
 
     private void restoreWindowHoverOutHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_restoreWindowHoverOutHandler
-        // TODO add your handling code here:
         restoreWindow.setIcon(winRestore);
     }//GEN-LAST:event_restoreWindowHoverOutHandler
 
     private void windowResizerHoverOutHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_windowResizerHoverOutHandler
-        // TODO add your handling code here:
         windowResizer.setIcon(winResize);
     }//GEN-LAST:event_windowResizerHoverOutHandler
 
     private void windowResizerHoverInHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_windowResizerHoverInHandler
-        // TODO add your handling code here:
         windowResizer.setIcon(winResizeHover);
     }//GEN-LAST:event_windowResizerHoverInHandler
 
     private void windowResizerDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_windowResizerDragged
-        // TODO add your handling code here:
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
         getTopLevelAncestor().setSize(windowSizeX + (x - xMouse), windowSizeY + (y - yMouse));
     }//GEN-LAST:event_windowResizerDragged
 
     private void windowResizerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_windowResizerMousePressed
-        // TODO add your handling code here:
         xMouse = evt.getXOnScreen();
         yMouse = evt.getYOnScreen();
         windowSizeX = getBounds().width;
@@ -361,6 +361,8 @@ public class cardView extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel MainPanel;
+    private javax.swing.JPanel cardPanel;
     private javax.swing.JLabel closeWindow;
     private javax.swing.JLabel dragWindow;
     private javax.swing.JLabel maximizeWindow;

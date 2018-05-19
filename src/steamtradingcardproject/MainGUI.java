@@ -6,12 +6,11 @@
 package steamtradingcardproject;
 
 import java.awt.Color;
-import java.awt.Image;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import steamtradingcardproject.controller.SteamAPI;
 import steamtradingcardproject.view.cardView;
-
+import steamtradingcardproject.model.Card;
+import steamtradingcardproject.model.CardSet;
 //import steamtradingcardproject.lib.ComponentResizer;
 
 /**
@@ -23,8 +22,31 @@ public class MainGUI {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args)
+    {
+         //TODO code application logic here
+        int[] testappids = {828580, 485670, 582330, 48720};
+        for(int i : testappids)
+        {
+            CardSet test;
+            SteamAPI temp = new SteamAPI();
+            try
+            {
+                test = temp.getCardSet(i);
+                Thread.sleep(1000);
+            }
+            catch (Exception e)
+            {
+                e.printStackTrace();
+                return;
+            }
+            System.out.println(test.getSetPrice());
+            Card[] cards = test.getCards();
+            for (Card card : cards)
+            {
+                System.out.println(card.getName() + ": " + card.getPrice());
+            }
+        }
         JFrame guiFrame = new JFrame();
         guiFrame.setUndecorated(true);
         guiFrame.add(new cardView(guiFrame));
@@ -38,7 +60,6 @@ public class MainGUI {
         //Image image = ImageIO.read("/me/spedwards/program/Icon.ico");
         //guiFrame.setIconImage(icon.getImage());
         guiFrame.setVisible(true);
-        
     }
     
 }
