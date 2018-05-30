@@ -19,6 +19,11 @@ import javax.swing.BorderFactory;
 import static javax.swing.Box.createVerticalGlue;
 import javax.swing.BoxLayout;
 import steamtradingcardproject.model.Card;
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -53,5 +58,18 @@ public class CardImage extends JPanel{
         this.setPreferredSize(new Dimension(140, 180));
         this.setBackground(new Color(38,38,38));
         this.setBorder(BorderFactory.createLineBorder(new Color(22,22,22), 2));
+        icon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+               if (Desktop.isDesktopSupported()) {
+                   try {
+                       String tempHash = c.getHashName().replace(" ", "%20");
+                       Desktop.getDesktop().browse(new URI("https://steamcommunity.com/market/listings/753/" + tempHash));
+                   } catch (Exception e) {
+                       e.printStackTrace();
+                       System.out.println("Oops");  
+                   }
+                }
+            }
+        });
     }
 }

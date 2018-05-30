@@ -51,4 +51,8 @@ public class Card
     {
         return this.iconUrl;
     }
+    public String getHashName()
+    {
+        return this.hashName;
+    }
 }
