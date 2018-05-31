@@ -6,16 +6,12 @@
 package steamtradingcardproject;
 
 import java.awt.Color;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import javax.swing.JFrame;
 import steamtradingcardproject.controller.SteamAPI;
 import steamtradingcardproject.view.cardView;
 import steamtradingcardproject.model.Card;
 import steamtradingcardproject.model.CardSet;
+import steamtradingcardproject.model.mySqlHelper;
 //import steamtradingcardproject.lib.ComponentResizer;
 
 /**
@@ -29,34 +25,11 @@ public class MainGUI {
      */
     public static void main(String[] args)
     {
-        // Database driver and host url
-        String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";  
-        String DB_URL = "jdbc:mysql://evillalpandodb.cfuraxh162ie.us-west-1.rds.amazonaws.com:3306/steamTradingCards?useSSL=false";
-        //  Database credentials
-        String USER = "evillalpando22";
-        String PASS = "2wsxXDR%";
-        Connection conn = null;
-        Statement stmt = null;
-        
-        try 
-        {
-            //Register JDBC driver
-            Class.forName(JDBC_DRIVER);
-            //Open a connection
-            //System.out.println("Connecting to a selected database...");
-            conn = DriverManager.getConnection(DB_URL, USER, PASS);
-            //System.out.println("Connected database successfully...");
-        }
-        catch(SQLException se)
-        {
-            //Handle errors for JDBC
-            se.printStackTrace();
-        }
-        catch(Exception e)
-        {
-            //Handle errors for Class.forName
-            e.printStackTrace();
-        }
+        //testing helper functionality
+        mySqlHelper db = new mySqlHelper();
+        db.openHelper();
+        db.testHelper();
+        db.closeHelper();
         
         // TODO code application logic here
 //        int[] testappids = {828580, 485670, 582330, 48720};
@@ -81,19 +54,6 @@ public class MainGUI {
 //                System.out.println(card.getName() + ": " + card.getPrice());
 //            }
 //        }
-        try
-        {
-            stmt = conn.createStatement();
-            String sql = "SELECT * FROM games"; 
-            ResultSet rset = stmt.executeQuery(sql);
-            System.out.println("Query Success");
-        }
-        catch(SQLException se)
-        {
-            //Handle errors for JDBC
-            se.printStackTrace();
-        }
-        
         JFrame guiFrame = new JFrame();
         guiFrame.setUndecorated(true);
         guiFrame.add(new cardView(guiFrame));
@@ -107,17 +67,6 @@ public class MainGUI {
         //Image image = ImageIO.read("/me/spedwards/program/Icon.ico");
         //guiFrame.setIconImage(icon.getImage());
         guiFrame.setVisible(true);
-        
-        try
-        {
-            if(conn!=null)
-                conn.close();
-            System.out.println("Connection closed.");
-        }
-        catch(SQLException se)
-        {
-         se.printStackTrace();
-        }
     }
     
 }
