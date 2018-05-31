@@ -301,12 +301,14 @@ public class cardView extends javax.swing.JPanel {
 
     private void maximizeWindowHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_maximizeWindowHandler
         this.controller.handleMaximizeAction(getTopLevelAncestor());
+        
         maximizeWindow.setEnabled(false);
         maximizeWindow.setVisible(false);
         restoreWindow.setEnabled(true);
         restoreWindow.setVisible(true);
         windowResizer.setEnabled(false);
         windowResizer.setVisible(false);
+        
     }//GEN-LAST:event_maximizeWindowHandler
 
     private void maximizeWindowHoverInHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_maximizeWindowHoverInHandler
@@ -428,7 +430,8 @@ public class cardView extends javax.swing.JPanel {
     
     private void displayCardsHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_displayCardsHandler
         cardPanel.removeAll();
-        getData(Integer.parseInt(gamesComboBox.getSelectedItem().toString()));
+        previousSelection = gamesComboBox.getSelectedItem().toString();
+        getData(Integer.parseInt(previousSelection));
         cardPanel.repaint();
         cardPanel.revalidate();
     }//GEN-LAST:event_displayCardsHandler
@@ -467,7 +470,7 @@ public class cardView extends javax.swing.JPanel {
             }
         }
     }
-
+private String previousSelection;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel cardPanel;
     private javax.swing.JLabel closeWindow;

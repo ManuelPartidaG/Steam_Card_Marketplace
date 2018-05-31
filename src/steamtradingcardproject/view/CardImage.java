@@ -9,6 +9,7 @@ package steamtradingcardproject.view;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.net.URL;
 import javax.imageio.ImageIO;
@@ -26,21 +27,30 @@ import steamtradingcardproject.model.Card;
  * @author 1matt
  */
 public class CardImage extends JPanel{
+   
+  
     
     public CardImage(Card c) {
         
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         String iconUrl = c.getIconUrl();
-        BufferedImage image;
+        //BufferedImage image;
         JLabel icon = new JLabel();
         this.add(createVerticalGlue());
         try{
-         image = ImageIO.read(new URL("https://steamcommunity-a.akamaihd.net/economy/image/" + iconUrl+"/140x120") );
+         
+         BufferedImage image = ImageIO.read(new URL("https://steamcommunity-a.akamaihd.net/economy/image/" + iconUrl+"/140x120") );
          icon.setIcon(new ImageIcon(image));
          this.add(icon);
         }
         catch (Exception e){
             e.printStackTrace();
+            icon.setBounds(60,60,60,60);
+            ImageIcon img = new ImageIcon(getClass().getResource("/steamtradingcardproject/resources/unknown.png"));
+            Image i = img.getImage();
+            Image im = i.getScaledInstance(icon.getWidth(), icon.getHeight(), Image.SCALE_SMOOTH);
+            icon.setIcon(new ImageIcon(im));
+            this.add(icon);
             System.out.println("Oops");                                     //THIS NEEDS TO BE CHANGED TO PROPERLY HANDLE EXCEPTIONS
         }
         JLabel info = new JLabel();
@@ -54,4 +64,7 @@ public class CardImage extends JPanel{
         this.setBackground(new Color(38,38,38));
         this.setBorder(BorderFactory.createLineBorder(new Color(22,22,22), 2));
     }
+    
+    
+   
 }
