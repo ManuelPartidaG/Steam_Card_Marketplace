@@ -49,6 +49,7 @@ public class mySqlHelper
         {
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
             stmt = conn.createStatement();
+            isConnected = true;
         }
         catch(SQLException se)
         {
@@ -62,6 +63,7 @@ public class mySqlHelper
         {
             stmt.close();
             conn.close();
+            isConnected = false;
         }
         catch(SQLException se)
         {
@@ -69,23 +71,39 @@ public class mySqlHelper
         }
     }
     
-    public void testHelper()
+    public void updateSetPrice(mySqlHelper db, int price, int appId)
     {
+        if (isConnected == false)
+        {
+            db.openHelper();
+        }
         try
         {
             String sql;
-            sql = "SELECT AppId FROM games WHERE GameName='Planet Coaster'";
-            ResultSet rs = stmt.executeQuery(sql);
-            while(rs.next())
-            {
-                int appId = rs.getInt("AppId");
-                System.out.println(appId);
-            }
-            rs.close();
+            sql = "UPDATE steamTradingCards.games SET SetPrice = " + price + " WHERE AppId = " + appId;
+            stmt.executeUpdate(sql);
         }
-        catch(SQLException se)
+        catch(Exception e)
         {
-          Logger.getLogger(mySqlHelper.class.getName()).log(Level.SEVERE, null, se);  
+            e.printStackTrace();
+        }
+    }
+    
+    public void updateNumCards(mySqlHelper db, int numCards, int appId)
+    {
+        if (isConnected == false)
+        {
+            db.openHelper();
+        }
+        try
+        {
+            String sql;
+            sql = "UPDATE steamTradingCards.games SET NumCards = " + numCards + " WHERE AppId = " + appId;
+            stmt.executeUpdate(sql);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
         }
     }
     
