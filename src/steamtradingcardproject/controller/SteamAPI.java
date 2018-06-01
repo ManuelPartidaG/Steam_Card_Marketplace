@@ -13,12 +13,12 @@ import java.io.InputStreamReader;
 import com.google.gson.JsonParser;
 import java.io.InputStream;
 import java.net.URLConnection;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import steamtradingcardproject.model.Card;
 import steamtradingcardproject.model.CardSet;
 import steamtradingcardproject.model.Game;
+import steamtradingcardproject.model.mySqlHelper;
 /**
  *
  * @author admin
@@ -26,9 +26,11 @@ import steamtradingcardproject.model.Game;
 public class SteamAPI
 {
     JsonParser jp;
+    mySqlHelper sql;
     public SteamAPI()
     {
         jp = new JsonParser();
+        sql = new mySqlHelper();
     }
     public CardSet getCardSet(int appid) throws Exception
     {
@@ -57,6 +59,9 @@ public class SteamAPI
             resultCards[i] = new Card(price, numOfListings, name, hashname, priceText, icon_url);
             //System.out.println("name: " + name + "hashname: " + hashname + "\tprice: " + price + "numOfListings: " + numOfListings + "\ticon_url: " + icon_url);
         }
+        sql.openHelper();
+        sql.updateNumCards(count,appid);
+        sql.closeHelper();
         return new CardSet(resultCards, "");
     }
     public Game[] getGamesWithCardsSteam()

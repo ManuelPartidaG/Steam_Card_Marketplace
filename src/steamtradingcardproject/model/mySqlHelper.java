@@ -71,12 +71,12 @@ public class mySqlHelper
         }
     }
     
-    public int getAppId(mySqlHelper db, String gameName)
+    public int getAppId(String gameName)
     {
         int appId = 0;
         if (isConnected == false)
         {
-            db.openHelper();
+            this.openHelper();
         }
         try
         {
@@ -114,11 +114,11 @@ public class mySqlHelper
         }
     }
     
-    public void updateNumCards(mySqlHelper db, int numCards, int appId)
+    public void updateNumCards(int numCards, int appId)
     {
         if (isConnected == false)
         {
-            db.openHelper();
+            this.openHelper();
         }
         try
         {
