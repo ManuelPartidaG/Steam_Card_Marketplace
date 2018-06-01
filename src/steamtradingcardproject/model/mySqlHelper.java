@@ -132,4 +132,30 @@ public class mySqlHelper
         }
     }
     
+    public void sortGameName(mySqlHelper db)
+    {
+        if (isConnected == false)
+        {
+            db.openHelper();
+        }
+        try
+        {
+            String sql;
+            sql = "SELECT * FROM steamTradingCards.games ORDER BY GameName";
+            ResultSet rs = stmt.executeQuery(sql);
+            while(rs.next())
+            {
+                String gameName = rs.getString("GameName");
+                int appId = rs.getInt("AppId");
+                int setPrice = rs.getInt("SetPrice");
+                int numCards = rs.getInt("NumCards");
+            }
+            rs.close();
+        }
+        catch(SQLException se)
+        {
+            Logger.getLogger(mySqlHelper.class.getName()).log(Level.SEVERE,null,se);
+        }
+    }
+    
 }
