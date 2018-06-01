@@ -7,6 +7,7 @@ package steamtradingcardproject.view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Frame;
@@ -19,13 +20,19 @@ import java.awt.LayoutManager2;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListCellRenderer;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import steamtradingcardproject.controller.Controller;
 import steamtradingcardproject.controller.SteamAPI;
 import steamtradingcardproject.model.Card;
 import steamtradingcardproject.model.CardSet;
+import steamtradingcardproject.model.Game;
 
 
 /**
@@ -47,6 +54,8 @@ public class cardView extends javax.swing.JPanel {
     public cardView(JFrame topLevelFrame) {
         guiFrame = topLevelFrame;
         prevWindowState = Frame.NORMAL;
+        this.controller = new Controller();
+        this.api = new SteamAPI();
         initComponents();
         this.setDoubleBuffered(true);
         this.setOpaque(false);
@@ -63,9 +72,21 @@ public class cardView extends javax.swing.JPanel {
         this.image = new ImageIcon(getClass().getResource("/steamtradingcardproject/resources/clienttexture2.png")).getImage();
         restoreWindow.setEnabled(false);
         restoreWindow.setVisible(false);
-        this.controller = new Controller();
-        this.api = new SteamAPI();
-       guiFrame.addWindowListener(new WindowListener() {
+        gamesComboBox.setModel(new DefaultComboBoxModel(api.getGamesWithCardsSteam()));
+        gamesComboBox.setRenderer(new DefaultListCellRenderer(){
+            @Override
+            public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+                if (value instanceof Game) {
+                    if(((Game)value).name.length() > 30)
+                        value = ((Game)value).name.substring(0,27) + "...";
+                    else
+                        value = ((Game)value).name.substring(0, Math.min(((Game)value).name.length(), 30));
+                }
+                return super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus); //To change body of generated methods, choose Tools | Templates.
+
+            }
+        });
+        guiFrame.addWindowListener(new WindowListener() {
             //made a bunch of listeners by default since WindowListener is not an abstract class just ignore i guess
             @Override
             public void windowIconified(WindowEvent e) {
@@ -124,7 +145,7 @@ public class cardView extends javax.swing.JPanel {
         mainPanel = new javax.swing.JPanel();
         //MainPanel.setVisible(false);
         cardPanel = new javax.swing.JPanel();
-        gamesComboBox = new javax.swing.JComboBox<>();
+        gamesComboBox = new javax.swing.JComboBox<String>();
         updateCardPanelButton = new javax.swing.JButton();
 
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -257,7 +278,7 @@ public class cardView extends javax.swing.JPanel {
 
         gamesComboBox.setBackground(new java.awt.Color(38, 38, 38));
         gamesComboBox.setForeground(new java.awt.Color(192, 192, 192));
-        gamesComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "828580", "485670", "596240", "593490", "617480", "785840", "644560" }));
+        gamesComboBox.setMaximumRowCount(30);
         gamesComboBox.setToolTipText("");
         gamesComboBox.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gamesComboBox.setEditor(null);
@@ -436,8 +457,8 @@ public class cardView extends javax.swing.JPanel {
     
     private void displayCardsHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_displayCardsHandler
         cardPanel.removeAll();
-        previousSelection = gamesComboBox.getSelectedItem().toString();
-        getData(Integer.parseInt(previousSelection));
+        //previousSelection = gamesComboBox.getSelectedItem().toString();
+        getData(((Game)gamesComboBox.getSelectedItem()).appid);
         cardPanel.repaint();
         cardPanel.revalidate();
     }//GEN-LAST:event_displayCardsHandler
