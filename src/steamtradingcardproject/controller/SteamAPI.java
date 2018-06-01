@@ -72,7 +72,6 @@ public class SteamAPI
             }
             JsonObject result = root.get("facets").getAsJsonObject().get("753_Game").getAsJsonObject().get("tags").getAsJsonObject();
             Set<Map.Entry<String, JsonElement>> entries = result.entrySet();
-            System.out.println(entries.size());
             Game[] games = new Game[entries.size()];
             int i = 0;
             for (Map.Entry<String, JsonElement> entry: entries){
