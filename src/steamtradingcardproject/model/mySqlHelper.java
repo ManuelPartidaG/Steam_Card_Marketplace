@@ -71,6 +71,31 @@ public class mySqlHelper
         }
     }
     
+    public int getAppId(mySqlHelper db, String gameName)
+    {
+        int appId = 0;
+        if (isConnected == false)
+        {
+            db.openHelper();
+        }
+        try
+        {
+            String sql;
+            sql = "SELECT AppId FROM steamTradingCards.games WHERE GameName = " + gameName;
+            ResultSet rs = stmt.executeQuery(sql);
+            while(rs.next())
+            {
+                appId = rs.getInt("AppId");
+            }
+            rs.close();
+        }
+        catch(SQLException se)
+        {
+            Logger.getLogger(mySqlHelper.class.getName()).log(Level.SEVERE,null,se);
+        }
+        return appId;
+    }
+    
     public void updateSetPrice(mySqlHelper db, int price, int appId)
     {
         if (isConnected == false)

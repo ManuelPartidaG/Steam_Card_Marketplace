@@ -261,6 +261,11 @@ public class cardView extends javax.swing.JPanel {
         gamesComboBox.setToolTipText("");
         gamesComboBox.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gamesComboBox.setEditor(null);
+        gamesComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gamesComboBoxActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -436,6 +441,10 @@ public class cardView extends javax.swing.JPanel {
         cardPanel.repaint();
         cardPanel.revalidate();
     }//GEN-LAST:event_displayCardsHandler
+
+    private void gamesComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gamesComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gamesComboBoxActionPerformed
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
