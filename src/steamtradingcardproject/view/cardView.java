@@ -145,7 +145,7 @@ public class cardView extends javax.swing.JPanel {
         mainPanel = new javax.swing.JPanel();
         //MainPanel.setVisible(false);
         cardPanel = new javax.swing.JPanel();
-        gamesComboBox = new javax.swing.JComboBox<String>();
+        gamesComboBox = new javax.swing.JComboBox<>();
         updateCardPanelButton = new javax.swing.JButton();
         priceFilter = new javax.swing.JCheckBox();
         toLabel1 = new javax.swing.JLabel();
@@ -302,6 +302,7 @@ public class cardView extends javax.swing.JPanel {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.ipadx = 25;
+        gridBagConstraints.weighty = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(38, 13, 11, 13);
         mainPanel.add(gamesComboBox, gridBagConstraints);
 
@@ -414,6 +415,7 @@ public class cardView extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
+        gridBagConstraints.weighty = 1.0;
         mainPanel.add(resultsDropbox, gridBagConstraints);
 
         updateButton.setText("Update");

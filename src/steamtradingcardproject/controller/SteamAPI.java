@@ -45,6 +45,7 @@ public class SteamAPI
         int count = rootobj.get("total_count").getAsInt();
         JsonArray results = rootobj.get("results").getAsJsonArray();
         Card[] resultCards = new Card[count];
+        int setPrice = 0;
         for(int i = 0; i < count; i++)
         {
             JsonObject listing = results.get(i).getAsJsonObject();
@@ -53,6 +54,7 @@ public class SteamAPI
             String hashname = listing.get("hash_name").getAsString();
             int numOfListings = listing.get("sell_listings").getAsInt();
             int price = listing.get("sell_price").getAsInt();
+            setPrice += price;
             String priceText = listing.get("sell_price_text").getAsString();
             //JsonObject asset = listing.get("asset_description").getAsJsonObject();
             String icon_url = listing.get("asset_description").getAsJsonObject().get("icon_url").getAsString();
@@ -60,7 +62,7 @@ public class SteamAPI
             //System.out.println("name: " + name + "hashname: " + hashname + "\tprice: " + price + "numOfListings: " + numOfListings + "\ticon_url: " + icon_url);
         }
         sql.openHelper();
-        sql.updateNumCards(count,appid);
+        sql.updateSet(count, setPrice, appid);
         sql.closeHelper();
         return new CardSet(resultCards, "");
     }

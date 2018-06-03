@@ -26,13 +26,11 @@ public class MainGUI {
      */
     public static void main(String[] args)
     {
-        /*
         //testing helper functionality
         mySqlHelper db = new mySqlHelper();
-        //db.openHelper();
-        db.updateNumCards(db, 8, 493340);
+        db.openHelper();
+        db.filterNumCards(4, 6);
         db.closeHelper();
-        */
 
         // TODO code application logic here
 //        int[] testappids = {828580, 485670, 582330, 48720};

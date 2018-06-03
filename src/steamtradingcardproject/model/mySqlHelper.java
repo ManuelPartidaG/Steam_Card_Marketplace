@@ -96,25 +96,7 @@ public class mySqlHelper
         return appId;
     }
     
-    public void updateSetPrice(mySqlHelper db, int price, int appId)
-    {
-        if (isConnected == false)
-        {
-            db.openHelper();
-        }
-        try
-        {
-            String sql;
-            sql = "UPDATE steamTradingCards.games SET SetPrice = " + price + " WHERE AppId = " + appId;
-            stmt.executeUpdate(sql);
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-        }
-    }
-    
-    public void updateNumCards(int numCards, int appId)
+    public void updateSet(int numCards, int setPrice, int appId)
     {
         if (isConnected == false)
         {
@@ -123,7 +105,7 @@ public class mySqlHelper
         try
         {
             String sql;
-            sql = "UPDATE steamTradingCards.games SET NumCards = " + numCards + " WHERE AppId = " + appId;
+            sql = "UPDATE steamTradingCards.games SET NumCards = " + numCards + ", SetPrice = " + setPrice + " WHERE AppId = " + appId;
             stmt.executeUpdate(sql);
         }
         catch(Exception e)
@@ -132,11 +114,45 @@ public class mySqlHelper
         }
     }
     
-    public void sortGameName(mySqlHelper db)
+    public Game[] filterNumCards(int lowNum, int upNum)
     {
         if (isConnected == false)
         {
-            db.openHelper();
+            this.openHelper();
+        }
+        try
+        {
+            String sql;
+            sql = "SELECT COUNT(*) FROM steamTradingCards.games WHERE NumCards >= " + lowNum + " AND NumCards <= " + upNum;
+            ResultSet rs = stmt.executeQuery(sql);
+            rs.next();
+            int setCount = rs.getInt("COUNT(*)");
+            Game[] gameResults = new Game[setCount+1];
+            sql = "SELECT GameName, AppId FROM steamTradingCards.games WHERE NumCards >= " + lowNum + " AND NumCards <= " + upNum;
+            rs = stmt.executeQuery(sql);
+            int i = 0;
+            while(rs.next())
+            {
+                String gameName = rs.getString("GameName");
+                int appId = rs.getInt("AppId");
+                gameResults[i] = new Game(gameName, appId);
+                i++;
+            }
+            rs.close();
+            return gameResults;
+        }
+        catch(SQLException se)
+        {
+            Logger.getLogger(mySqlHelper.class.getName()).log(Level.SEVERE,null,se);
+        }
+        return null;
+    }
+    
+    public void sortGameName()
+    {
+        if (isConnected == false)
+        {
+            this.openHelper();
         }
         try
         {
