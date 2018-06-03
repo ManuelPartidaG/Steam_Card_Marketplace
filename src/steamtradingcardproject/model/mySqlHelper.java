@@ -114,37 +114,113 @@ public class mySqlHelper
         }
     }
     
-    public Game[] filterNumCards(int lowNum, int upNum)
+    //pass the function zeros for the field not being used 
+    //i.e. we want all sets with 4-8 cards but don't care about price, pass it (4, 8, 0, 0)
+    public Game[] filterNumCards(int lowNumCards, int upNumCards, int lowPrice, int upPrice)
     {
         if (isConnected == false)
         {
             this.openHelper();
         }
-        try
+        
+        if (lowPrice == 0 && upPrice ==0)
         {
-            String sql;
-            sql = "SELECT COUNT(*) FROM steamTradingCards.games WHERE NumCards >= " + lowNum + " AND NumCards <= " + upNum;
-            ResultSet rs = stmt.executeQuery(sql);
-            rs.next();
-            int setCount = rs.getInt("COUNT(*)");
-            Game[] gameResults = new Game[setCount+1];
-            sql = "SELECT GameName, AppId FROM steamTradingCards.games WHERE NumCards >= " + lowNum + " AND NumCards <= " + upNum;
-            rs = stmt.executeQuery(sql);
-            int i = 0;
-            while(rs.next())
-            {
-                String gameName = rs.getString("GameName");
-                int appId = rs.getInt("AppId");
-                gameResults[i] = new Game(gameName, appId);
-                i++;
-            }
-            rs.close();
-            return gameResults;
+            try
+         {
+             String sql;
+             sql = "SELECT COUNT(*) FROM steamTradingCards.games WHERE NumCards >= " + lowNumCards + " AND NumCards <= " + upNumCards;
+             ResultSet rs = stmt.executeQuery(sql);
+             rs.next();
+             int setCount = rs.getInt("COUNT(*)");
+             Game[] gameResults = new Game[setCount+1];
+             sql = "SELECT GameName, AppId FROM steamTradingCards.games WHERE NumCards >= " + lowNumCards + " AND NumCards <= " + upNumCards;
+             rs = stmt.executeQuery(sql);
+             int i = 0;
+             while(rs.next())
+             {
+                 String gameName = rs.getString("GameName");
+                 int appId = rs.getInt("AppId");
+                 gameResults[i] = new Game(gameName, appId);
+                 i++;
+                 //debugging
+                 System.out.println(gameName);
+                 System.out.println(appId);
+             }
+             rs.close();
+             return gameResults;
+         }
+         catch(SQLException se)
+         {
+             Logger.getLogger(mySqlHelper.class.getName()).log(Level.SEVERE,null,se);
+         } 
         }
-        catch(SQLException se)
+        
+        if (lowNumCards == 0 && upNumCards ==0)
         {
-            Logger.getLogger(mySqlHelper.class.getName()).log(Level.SEVERE,null,se);
+            try
+         {
+             String sql;
+             sql = "SELECT COUNT(*) FROM steamTradingCards.games WHERE SetPrice >= " + lowPrice + " AND SetPrice <= " + upPrice;
+             ResultSet rs = stmt.executeQuery(sql);
+             rs.next();
+             int setCount = rs.getInt("COUNT(*)");
+             Game[] gameResults = new Game[setCount+1];
+             sql = "SELECT GameName, AppId FROM steamTradingCards.games WHERE SetPrice >= " + lowPrice + " AND SetPrice <= " + upPrice;
+             rs = stmt.executeQuery(sql);
+             int i = 0;
+             while(rs.next())
+             {
+                 String gameName = rs.getString("GameName");
+                 int appId = rs.getInt("AppId");
+                 gameResults[i] = new Game(gameName, appId);
+                 i++;
+                 //debugging
+                 System.out.println(gameName);
+                 System.out.println(appId);
+             }
+             rs.close();
+             return gameResults;
+         }
+         catch(SQLException se)
+         {
+             Logger.getLogger(mySqlHelper.class.getName()).log(Level.SEVERE,null,se);
+         } 
         }
+        
+        else
+        {
+            try
+         {
+             String sql;
+             sql = "SELECT COUNT(*) FROM steamTradingCards.games WHERE NumCards >= " + lowNumCards + " AND NumCards <= " + upNumCards 
+                     + " AND SetPrice >= " + lowPrice + " AND SetPrice <= " + upPrice;
+             ResultSet rs = stmt.executeQuery(sql);
+             rs.next();
+             int setCount = rs.getInt("COUNT(*)");
+             Game[] gameResults = new Game[setCount+1];
+             sql = "SELECT GameName, AppId FROM steamTradingCards.games WHERE NumCards >= " + lowNumCards + " AND NumCards <= " + upNumCards 
+                     + " AND SetPrice >= " + lowPrice + " AND SetPrice <= " + upPrice;
+             rs = stmt.executeQuery(sql);
+             int i = 0;
+             while(rs.next())
+             {
+                 String gameName = rs.getString("GameName");
+                 int appId = rs.getInt("AppId");
+                 gameResults[i] = new Game(gameName, appId);
+                 i++;
+                 //debugging
+                 System.out.println(gameName);
+                 System.out.println(appId);
+             }
+             rs.close();
+             return gameResults;
+         }
+         catch(SQLException se)
+         {
+             Logger.getLogger(mySqlHelper.class.getName()).log(Level.SEVERE,null,se);
+         } 
+        }
+        
         return null;
     }
     
