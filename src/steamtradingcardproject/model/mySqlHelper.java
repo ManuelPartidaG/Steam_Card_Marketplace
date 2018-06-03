@@ -133,7 +133,8 @@ public class mySqlHelper
              rs.next();
              int setCount = rs.getInt("COUNT(*)");
              Game[] gameResults = new Game[setCount+1];
-             sql = "SELECT GameName, AppId FROM steamTradingCards.games WHERE NumCards >= " + lowNumCards + " AND NumCards <= " + upNumCards;
+             sql = "SELECT GameName, AppId FROM steamTradingCards.games WHERE NumCards >= " + lowNumCards + " AND NumCards <= " + upNumCards
+                     + " ORDER BY GameName";
              rs = stmt.executeQuery(sql);
              int i = 0;
              while(rs.next())
@@ -142,9 +143,6 @@ public class mySqlHelper
                  int appId = rs.getInt("AppId");
                  gameResults[i] = new Game(gameName, appId);
                  i++;
-                 //debugging
-                 System.out.println(gameName);
-                 System.out.println(appId);
              }
              rs.close();
              return gameResults;
@@ -165,7 +163,8 @@ public class mySqlHelper
              rs.next();
              int setCount = rs.getInt("COUNT(*)");
              Game[] gameResults = new Game[setCount+1];
-             sql = "SELECT GameName, AppId FROM steamTradingCards.games WHERE SetPrice >= " + lowPrice + " AND SetPrice <= " + upPrice;
+             sql = "SELECT GameName, AppId FROM steamTradingCards.games WHERE SetPrice >= " + lowPrice + " AND SetPrice <= " + upPrice
+                     + " ORDER BY GameName";
              rs = stmt.executeQuery(sql);
              int i = 0;
              while(rs.next())
@@ -174,9 +173,6 @@ public class mySqlHelper
                  int appId = rs.getInt("AppId");
                  gameResults[i] = new Game(gameName, appId);
                  i++;
-                 //debugging
-                 System.out.println(gameName);
-                 System.out.println(appId);
              }
              rs.close();
              return gameResults;
@@ -199,7 +195,7 @@ public class mySqlHelper
              int setCount = rs.getInt("COUNT(*)");
              Game[] gameResults = new Game[setCount+1];
              sql = "SELECT GameName, AppId FROM steamTradingCards.games WHERE NumCards >= " + lowNumCards + " AND NumCards <= " + upNumCards 
-                     + " AND SetPrice >= " + lowPrice + " AND SetPrice <= " + upPrice;
+                     + " AND SetPrice >= " + lowPrice + " AND SetPrice <= " + upPrice + " ORDER BY GameName";
              rs = stmt.executeQuery(sql);
              int i = 0;
              while(rs.next())
@@ -208,9 +204,6 @@ public class mySqlHelper
                  int appId = rs.getInt("AppId");
                  gameResults[i] = new Game(gameName, appId);
                  i++;
-                 //debugging
-                 System.out.println(gameName);
-                 System.out.println(appId);
              }
              rs.close();
              return gameResults;
