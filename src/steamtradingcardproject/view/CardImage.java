@@ -23,8 +23,6 @@ import steamtradingcardproject.model.Card;
 import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URI;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 
 /**
