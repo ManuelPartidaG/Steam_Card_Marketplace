@@ -11,6 +11,8 @@ import steamtradingcardproject.controller.SteamAPI;
 import steamtradingcardproject.view.cardView;
 import steamtradingcardproject.model.Card;
 import steamtradingcardproject.model.CardSet;
+import steamtradingcardproject.model.Game;
+import steamtradingcardproject.model.mySqlHelper;
 //import steamtradingcardproject.lib.ComponentResizer;
 
 /**
@@ -24,6 +26,12 @@ public class MainGUI {
      */
     public static void main(String[] args)
     {
+        //testing helper functionality
+        /*mySqlHelper db = new mySqlHelper();
+        db.openHelper();
+        db.filterNumCards(4, 10, 25, 100);
+        db.closeHelper();*/
+
         // TODO code application logic here
 //        int[] testappids = {828580, 485670, 582330, 48720};
 //        for(int i : testappids)
@@ -46,6 +54,20 @@ public class MainGUI {
 //            {
 //                System.out.println(card.getName() + ": " + card.getPrice());
 //            }
+//        }
+//        SteamAPI temp = new SteamAPI();
+//        Game[] games = null;
+//        try
+//        {
+//            games = temp.getGamesWithCardsSteam();
+//        }
+//        catch (Exception e)
+//        {
+//            e.printStackTrace();
+//        }
+//        for(Game g:games)
+//        {
+//            System.out.println(g.appid + ": " +  g.name);
 //        }
         JFrame guiFrame = new JFrame();
         guiFrame.setUndecorated(true);
