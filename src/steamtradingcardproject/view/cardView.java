@@ -90,6 +90,20 @@ public class cardView extends javax.swing.JPanel {
 
             }
         });
+        resultsComboBox.setRenderer(new DefaultListCellRenderer(){
+            @Override
+            public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+                if (value instanceof Game) {
+                    if(((Game)value).name.length() > 30)
+                        value = ((Game)value).name.substring(0,27) + "...";
+                    else
+                        value = ((Game)value).name.substring(0, Math.min(((Game)value).name.length(), 30));
+                }
+                return super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus); //To change body of generated methods, choose Tools | Templates.
+
+            }
+        });
+        this.repaint();
         guiFrame.addWindowListener(new WindowListener() {
             //made a bunch of listeners by default since WindowListener is not an abstract class just ignore i guess
             @Override
@@ -298,11 +312,6 @@ public class cardView extends javax.swing.JPanel {
         gamesComboBox.setToolTipText("");
         gamesComboBox.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gamesComboBox.setEditor(null);
-        gamesComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                gamesComboBoxActionPerformed(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -320,11 +329,6 @@ public class cardView extends javax.swing.JPanel {
                 displayCardsHandler(evt);
             }
         });
-        updateCardPanelButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                updateCardPanelButtonActionPerformed(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -335,11 +339,6 @@ public class cardView extends javax.swing.JPanel {
 
         priceFilter.setForeground(new java.awt.Color(255, 255, 255));
         priceFilter.setText("Price");
-        priceFilter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                priceFilterActionPerformed(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -356,11 +355,6 @@ public class cardView extends javax.swing.JPanel {
         mainPanel.add(toLabel1, gridBagConstraints);
 
         maxPrice.setMinimumSize(new java.awt.Dimension(26, 26));
-        maxPrice.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                maxPriceActionPerformed(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
@@ -369,11 +363,6 @@ public class cardView extends javax.swing.JPanel {
 
         number_of_CardsFilter.setForeground(new java.awt.Color(255, 255, 255));
         number_of_CardsFilter.setText("Number of Cards");
-        number_of_CardsFilter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                number_of_CardsFilterActionPerformed(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
@@ -381,11 +370,6 @@ public class cardView extends javax.swing.JPanel {
         mainPanel.add(number_of_CardsFilter, gridBagConstraints);
 
         minNumber_of_Cards.setMinimumSize(new java.awt.Dimension(26, 26));
-        minNumber_of_Cards.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                minNumber_of_CardsActionPerformed(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
@@ -401,11 +385,6 @@ public class cardView extends javax.swing.JPanel {
         mainPanel.add(toLabel2, gridBagConstraints);
 
         maxNumber_of_Cards.setMinimumSize(new java.awt.Dimension(26, 26));
-        maxNumber_of_Cards.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                maxNumber_of_CardsActionPerformed(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
@@ -445,11 +424,6 @@ public class cardView extends javax.swing.JPanel {
         mainPanel.add(updateButton, gridBagConstraints);
 
         minPrice.setMinimumSize(new java.awt.Dimension(26, 26));
-        minPrice.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                minPriceActionPerformed(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
@@ -462,6 +436,11 @@ public class cardView extends javax.swing.JPanel {
         jButton1.setMaximumSize(new java.awt.Dimension(2147483647, 34));
         jButton1.setMinimumSize(new java.awt.Dimension(79, 34));
         jButton1.setPreferredSize(new java.awt.Dimension(79, 34));
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                displaySearchedCardsHandler(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 7;
@@ -617,35 +596,10 @@ public class cardView extends javax.swing.JPanel {
     
     private void displayCardsHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_displayCardsHandler
         cardPanel.removeAll();
-        //previousSelection = gamesComboBox.getSelectedItem().toString();
         getData(((Game)gamesComboBox.getSelectedItem()).appid);
         cardPanel.repaint();
         cardPanel.revalidate();
     }//GEN-LAST:event_displayCardsHandler
-
-    private void gamesComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gamesComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_gamesComboBoxActionPerformed
-
-    private void priceFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priceFilterActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_priceFilterActionPerformed
-
-    private void number_of_CardsFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_number_of_CardsFilterActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_number_of_CardsFilterActionPerformed
-
-    private void minNumber_of_CardsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minNumber_of_CardsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_minNumber_of_CardsActionPerformed
-
-    private void maxNumber_of_CardsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maxNumber_of_CardsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_maxNumber_of_CardsActionPerformed
-
-    private void maxPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maxPriceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_maxPriceActionPerformed
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         //Filters and result JComboBox generation
@@ -677,28 +631,17 @@ public class cardView extends javax.swing.JPanel {
         db.openHelper();
         resultsComboBox.setModel(new DefaultComboBoxModel(db.filterNumCards(lowNum, upNum, lowPrice, upPrice)));
         db.closeHelper();
-        resultsComboBox.setRenderer(new DefaultListCellRenderer(){
-            @Override
-            public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
-                if (value instanceof Game) {
-                    if(((Game)value).name.length() > 30)
-                        value = ((Game)value).name.substring(0,27) + "...";
-                    else
-                        value = ((Game)value).name.substring(0, Math.min(((Game)value).name.length(), 30));
-                }
-                return super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus); //To change body of generated methods, choose Tools | Templates.
-
-            }
-        });
     }//GEN-LAST:event_updateButtonActionPerformed
 
-    private void updateCardPanelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateCardPanelButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_updateCardPanelButtonActionPerformed
-
-    private void minPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minPriceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_minPriceActionPerformed
+    private void displaySearchedCardsHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_displaySearchedCardsHandler
+        if(resultsComboBox.getSelectedItem() != null)
+        {
+            cardPanel.removeAll();
+            getData(((Game)resultsComboBox.getSelectedItem()).appid);
+            cardPanel.repaint();
+            cardPanel.revalidate();
+        }
+    }//GEN-LAST:event_displaySearchedCardsHandler
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
