@@ -400,7 +400,7 @@ public class cardView extends javax.swing.JPanel {
         mainPanel.add(resultsLabel, gridBagConstraints);
         resultsLabel.getAccessibleContext().setAccessibleName("");
 
-        resultsComboBox.setBackground(new java.awt.Color(0, 0, 0));
+        resultsComboBox.setBackground(new java.awt.Color(38, 38, 38));
         resultsComboBox.setForeground(new java.awt.Color(192, 192, 192));
         resultsComboBox.setMaximumRowCount(30);
         resultsComboBox.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -433,6 +433,7 @@ public class cardView extends javax.swing.JPanel {
         jButton1.setBackground(new java.awt.Color(38, 38, 38));
         jButton1.setForeground(new java.awt.Color(38, 38, 38));
         jButton1.setText("<html> <font color=#c4c4c4>Display</font></html>");
+        jButton1.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(22, 22, 22), 2), javax.swing.BorderFactory.createEmptyBorder(7, 14, 7, 14)));
         jButton1.setMaximumSize(new java.awt.Dimension(2147483647, 34));
         jButton1.setMinimumSize(new java.awt.Dimension(79, 34));
         jButton1.setPreferredSize(new java.awt.Dimension(79, 34));
