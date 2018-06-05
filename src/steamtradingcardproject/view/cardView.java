@@ -316,7 +316,7 @@ public class cardView extends javax.swing.JPanel {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.ipadx = 25;
-        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.weighty = 0.5;
         gridBagConstraints.insets = new java.awt.Insets(38, 13, 11, 13);
         mainPanel.add(gamesComboBox, gridBagConstraints);
 
@@ -337,12 +337,14 @@ public class cardView extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(1, 0, 27, 0);
         mainPanel.add(updateCardPanelButton, gridBagConstraints);
 
-        priceFilter.setForeground(new java.awt.Color(255, 255, 255));
+        priceFilter.setBackground(new java.awt.Color(38, 38, 38));
+        priceFilter.setForeground(new java.awt.Color(192, 192, 192));
         priceFilter.setText("Price");
+        priceFilter.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
-        gridBagConstraints.ipadx = 77;
+        gridBagConstraints.ipadx = 5;
         mainPanel.add(priceFilter, gridBagConstraints);
 
         toLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -354,27 +356,42 @@ public class cardView extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 2);
         mainPanel.add(toLabel1, gridBagConstraints);
 
+        maxPrice.setBackground(new java.awt.Color(32, 32, 32));
+        maxPrice.setForeground(new java.awt.Color(192, 192, 192));
+        maxPrice.setText("0");
+        maxPrice.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         maxPrice.setMinimumSize(new java.awt.Dimension(26, 26));
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 15;
+        gridBagConstraints.weightx = 0.01;
         mainPanel.add(maxPrice, gridBagConstraints);
 
-        number_of_CardsFilter.setForeground(new java.awt.Color(255, 255, 255));
+        number_of_CardsFilter.setBackground(new java.awt.Color(38, 38, 38));
+        number_of_CardsFilter.setForeground(new java.awt.Color(192, 192, 192));
         number_of_CardsFilter.setText("Number of Cards");
+        number_of_CardsFilter.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
+        gridBagConstraints.ipadx = 1;
+        gridBagConstraints.ipady = 2;
         gridBagConstraints.insets = new java.awt.Insets(8, 0, 0, 0);
         mainPanel.add(number_of_CardsFilter, gridBagConstraints);
 
+        minNumber_of_Cards.setBackground(new java.awt.Color(38, 38, 38));
+        minNumber_of_Cards.setForeground(new java.awt.Color(192, 192, 192));
+        minNumber_of_Cards.setText("0");
+        minNumber_of_Cards.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         minNumber_of_Cards.setMinimumSize(new java.awt.Dimension(26, 26));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 15;
+        gridBagConstraints.weightx = 0.01;
         mainPanel.add(minNumber_of_Cards, gridBagConstraints);
 
         toLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -384,15 +401,23 @@ public class cardView extends javax.swing.JPanel {
         gridBagConstraints.gridy = 3;
         mainPanel.add(toLabel2, gridBagConstraints);
 
+        maxNumber_of_Cards.setBackground(new java.awt.Color(38, 38, 38));
+        maxNumber_of_Cards.setForeground(new java.awt.Color(192, 192, 192));
+        maxNumber_of_Cards.setText("0");
+        maxNumber_of_Cards.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         maxNumber_of_Cards.setMinimumSize(new java.awt.Dimension(26, 26));
         gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.ipadx = 15;
+        gridBagConstraints.weightx = 0.01;
         mainPanel.add(maxNumber_of_Cards, gridBagConstraints);
 
-        resultsLabel.setForeground(new java.awt.Color(255, 255, 255));
-        resultsLabel.setText("Results");
+        resultsLabel.setBackground(new java.awt.Color(38, 38, 38));
+        resultsLabel.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        resultsLabel.setForeground(new java.awt.Color(38, 38, 38));
+        resultsLabel.setText("<html> <font color=#c4c4c4>Results</font></html>");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
@@ -407,12 +432,12 @@ public class cardView extends javax.swing.JPanel {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
-        gridBagConstraints.weighty = 1.0;
         mainPanel.add(resultsComboBox, gridBagConstraints);
 
-        updateButton.setBackground(new java.awt.Color(0, 0, 0));
-        updateButton.setForeground(new java.awt.Color(102, 102, 102));
-        updateButton.setText("Update");
+        updateButton.setBackground(new java.awt.Color(38, 38, 38));
+        updateButton.setForeground(new java.awt.Color(38, 38, 38));
+        updateButton.setText("<html> <font color=#c4c4c4>Update</font></html>");
+        updateButton.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(22, 22, 22), 2), javax.swing.BorderFactory.createEmptyBorder(7, 14, 7, 14)));
         updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateButtonActionPerformed(evt);
@@ -423,20 +448,27 @@ public class cardView extends javax.swing.JPanel {
         gridBagConstraints.gridy = 4;
         mainPanel.add(updateButton, gridBagConstraints);
 
+        minPrice.setBackground(new java.awt.Color(32, 32, 32));
+        minPrice.setForeground(new java.awt.Color(192, 192, 192));
+        minPrice.setText("0");
+        minPrice.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         minPrice.setMinimumSize(new java.awt.Dimension(26, 26));
+        minPrice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minPriceActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 0.01;
         mainPanel.add(minPrice, gridBagConstraints);
 
         jButton1.setBackground(new java.awt.Color(38, 38, 38));
         jButton1.setForeground(new java.awt.Color(38, 38, 38));
         jButton1.setText("<html> <font color=#c4c4c4>Display</font></html>");
         jButton1.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(22, 22, 22), 2), javax.swing.BorderFactory.createEmptyBorder(7, 14, 7, 14)));
-        jButton1.setMaximumSize(new java.awt.Dimension(2147483647, 34));
-        jButton1.setMinimumSize(new java.awt.Dimension(79, 34));
-        jButton1.setPreferredSize(new java.awt.Dimension(79, 34));
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 displaySearchedCardsHandler(evt);
@@ -645,6 +677,10 @@ public class cardView extends javax.swing.JPanel {
             cardPanel.revalidate();
         }
     }//GEN-LAST:event_displaySearchedCardsHandler
+
+    private void minPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minPriceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_minPriceActionPerformed
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
