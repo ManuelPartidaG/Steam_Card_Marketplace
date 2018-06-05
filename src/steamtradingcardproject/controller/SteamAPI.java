@@ -67,38 +67,31 @@ public class SteamAPI
         sql.closeHelper();
         return new CardSet(resultCards, "");
     }
-    public Game[] getGamesWithCardsSteam()
+    public Game[] getGamesWithCardsSteam() throws Exception
     {
-        try{
-            URL url = new URL("https://steamcommunity.com/market/appfilters/753");
-            URLConnection request = url.openConnection();
-            request.connect();
-            JsonObject root = jp.parse(new InputStreamReader((InputStream) request.getContent())).getAsJsonObject();
-            if(!root.get("success").getAsBoolean())
-            {
-                throw new Exception();
-            }
-            JsonObject result = root.get("facets").getAsJsonObject().get("753_Game").getAsJsonObject().get("tags").getAsJsonObject();
-            Set<Map.Entry<String, JsonElement>> entries = result.entrySet();
-            Game[] games = new Game[entries.size()];
-            int i = 0;
-            for (Map.Entry<String, JsonElement> entry: entries){
-                //System.out.println(entry.getKey().substring(4) + " " + entry.getValue().getAsJsonObject().get("localized_name").getAsString());
-                games[i] =  new Game(entry.getValue().getAsJsonObject().get("localized_name").getAsString(), Integer.parseInt(entry.getKey().substring(4)));
-                i++;
-            }
-            Arrays.sort(games, new Comparator<Game>() {
-                @Override
-                public int compare(Game o1, Game o2) {
-                    return o1.name.compareTo(o2.name);
-                }
-            });
-            return games;
-        }
-        catch (Exception e)
+        URL url = new URL("https://steamcommunity.com/market/appfilters/753");
+        URLConnection request = url.openConnection();
+        request.connect();
+        JsonObject root = jp.parse(new InputStreamReader((InputStream) request.getContent())).getAsJsonObject();
+        if(!root.get("success").getAsBoolean())
         {
-                    
+            throw new Exception();
         }
-        return null;
+        JsonObject result = root.get("facets").getAsJsonObject().get("753_Game").getAsJsonObject().get("tags").getAsJsonObject();
+        Set<Map.Entry<String, JsonElement>> entries = result.entrySet();
+        Game[] games = new Game[entries.size()];
+        int i = 0;
+        for (Map.Entry<String, JsonElement> entry: entries){
+            //System.out.println(entry.getKey().substring(4) + " " + entry.getValue().getAsJsonObject().get("localized_name").getAsString());
+            games[i] =  new Game(entry.getValue().getAsJsonObject().get("localized_name").getAsString(), Integer.parseInt(entry.getKey().substring(4)));
+            i++;
+        }
+        Arrays.sort(games, new Comparator<Game>() {
+            @Override
+            public int compare(Game o1, Game o2) {
+                return o1.name.compareTo(o2.name);
+            }
+        });
+        return games;
     }
 }

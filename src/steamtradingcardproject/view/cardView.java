@@ -26,6 +26,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -76,7 +77,18 @@ public class cardView extends javax.swing.JPanel {
         this.image = new ImageIcon(getClass().getResource("/steamtradingcardproject/resources/clienttexture2.png")).getImage();
         restoreWindow.setEnabled(false);
         restoreWindow.setVisible(false);
-        gamesComboBox.setModel(new DefaultComboBoxModel(api.getGamesWithCardsSteam()));
+        try
+        {
+            gamesComboBox.setModel(new DefaultComboBoxModel(api.getGamesWithCardsSteam()));
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(new JFrame(),
+                "This application need a network connection to run!\nPlease connect to the internet and try again.",
+                "Network Error",
+                JOptionPane.ERROR_MESSAGE);
+            System.exit(1);
+        }
         gamesComboBox.setRenderer(new DefaultListCellRenderer(){
             @Override
             public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
@@ -611,6 +623,11 @@ public class cardView extends javax.swing.JPanel {
         }
         Card[] cards = result.getCards();
         GetImagesThread workers[] = new GetImagesThread[cards.length];
+        if(cards.length == 0)
+        {
+            JLabel jl = new JLabel("<html><font color=#949494>No cards found on market for this Item</font></html>");
+            cardPanel.add(jl);
+        }
         for (int i = 0; i < cards.length; i++)
         {
             workers[i] = new GetImagesThread(cards[i]);
