@@ -13,6 +13,8 @@ import java.io.InputStreamReader;
 import com.google.gson.JsonParser;
 import java.io.InputStream;
 import java.net.URLConnection;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Map;
 import java.util.Set;
 import steamtradingcardproject.model.Card;
@@ -36,10 +38,9 @@ public class SteamAPI
     {
         URL url = new URL("https://steamcommunity.com/market/search/render?category_753_Game[]=tag_app_" + appid + "&category_753_cardborder[]=tag_cardborder_0&category_753_item_class[]=tag_item_class_2&appid=753&start=0&count=15&format=json&norender=1");
         URLConnection request = url.openConnection();
+        request.setConnectTimeout(5000);
         request.connect();
-
         // Convert to a JSON object to print data
-        //JsonParser jp = new JsonParser(); //from gson
         JsonElement root = jp.parse(new InputStreamReader((InputStream) request.getContent())); //Convert the input stream to a json element
         JsonObject rootobj = root.getAsJsonObject(); //May be an array, may be an object. 
         int count = rootobj.get("total_count").getAsInt();
@@ -86,6 +87,12 @@ public class SteamAPI
                 games[i] =  new Game(entry.getValue().getAsJsonObject().get("localized_name").getAsString(), Integer.parseInt(entry.getKey().substring(4)));
                 i++;
             }
+            Arrays.sort(games, new Comparator<Game>() {
+                @Override
+                public int compare(Game o1, Game o2) {
+                    return o1.name.compareTo(o2.name);
+                }
+            });
             return games;
         }
         catch (Exception e)

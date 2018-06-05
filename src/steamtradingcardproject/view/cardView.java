@@ -571,8 +571,10 @@ public class cardView extends javax.swing.JPanel {
         }
         catch (Exception e)
         {
-            e.printStackTrace();
-            System.out.println("Oops");
+            JOptionPane.showMessageDialog(new JFrame(),
+                "A network error has occured! \nPlease check your internet connection \nand that you're not ip ban from steam",
+                "Network Error",
+                JOptionPane.ERROR_MESSAGE);
             return;
         }
         Card[] cards = result.getCards();
