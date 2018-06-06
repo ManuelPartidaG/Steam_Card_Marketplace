@@ -317,7 +317,6 @@ public class cardView extends javax.swing.JPanel {
         gamesComboBox.setMaximumRowCount(30);
         gamesComboBox.setToolTipText("");
         gamesComboBox.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        gamesComboBox.setEditor(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
