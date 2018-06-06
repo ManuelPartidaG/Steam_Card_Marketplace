@@ -563,8 +563,6 @@ public class cardView extends javax.swing.JPanel {
     }//GEN-LAST:event_dragWindowMouseDragged
 
     private void dragWindowMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dragWindowMousePressed
-        xMouse = evt.getX();
-        yMouse = evt.getY();
         if (evt.getClickCount() == 2 && !evt.isConsumed()) {
             evt.consume();
             if(guiFrame.getExtendedState() == JFrame.NORMAL)
@@ -574,6 +572,11 @@ public class cardView extends javax.swing.JPanel {
                 restoreWindowHandler(evt);
             }
        }
+        else
+        {
+            xMouse = evt.getX();
+            yMouse = evt.getY();
+        }
     }//GEN-LAST:event_dragWindowMousePressed
 
     private void windowResizeHandler(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_windowResizeHandler
