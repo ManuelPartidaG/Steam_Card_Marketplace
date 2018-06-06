@@ -73,6 +73,7 @@ public class CardImage extends JPanel{
         this.setBackground(new Color(38,38,38));
         this.setBorder(BorderFactory.createLineBorder(new Color(22,22,22), 2));
         icon.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                if (Desktop.isDesktopSupported()) {
                    try {

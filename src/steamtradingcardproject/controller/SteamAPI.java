@@ -86,12 +86,7 @@ public class SteamAPI
             games[i] =  new Game(entry.getValue().getAsJsonObject().get("localized_name").getAsString(), Integer.parseInt(entry.getKey().substring(4)));
             i++;
         }
-        Arrays.sort(games, new Comparator<Game>() {
-            @Override
-            public int compare(Game o1, Game o2) {
-                return o1.name.compareTo(o2.name);
-            }
-        });
+        Arrays.sort(games, (Game o1, Game o2) -> o1.name.compareTo(o2.name));
         return games;
     }
 }
