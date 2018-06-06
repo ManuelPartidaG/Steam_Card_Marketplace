@@ -17,6 +17,7 @@ public class Game {
         this.name = name;
         this.appid = appid;
     }
+    @Override
     public String toString()
     {
         return name;
