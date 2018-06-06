@@ -317,7 +317,6 @@ public class cardView extends javax.swing.JPanel {
         gamesComboBox.setMaximumRowCount(30);
         gamesComboBox.setToolTipText("");
         gamesComboBox.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        gamesComboBox.setEditor(null);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -474,11 +473,6 @@ public class cardView extends javax.swing.JPanel {
         minPrice.setText("0");
         minPrice.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(22, 22, 22), 2), javax.swing.BorderFactory.createEmptyBorder(3, 5, 3, 5)));
         minPrice.setMinimumSize(new java.awt.Dimension(26, 26));
-        minPrice.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                minPriceActionPerformed(evt);
-            }
-        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 2;
@@ -707,9 +701,6 @@ public class cardView extends javax.swing.JPanel {
         db.openHelper();
         resultsComboBox.setModel(new DefaultComboBoxModel(db.filterNumCards(lowNum, upNum, lowPrice, upPrice)));
         db.closeHelper();
-        resultsComboBox.setEditable(true);
-        JTextComponent editor = (JTextComponent) resultsComboBox.getEditor().getEditorComponent();
-        editor.setDocument(new JComboBoxHelper(resultsComboBox));
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void displaySearchedCardsHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_displaySearchedCardsHandler
@@ -721,10 +712,6 @@ public class cardView extends javax.swing.JPanel {
             cardPanel.revalidate();
         }
     }//GEN-LAST:event_displaySearchedCardsHandler
-
-    private void minPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minPriceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_minPriceActionPerformed
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
