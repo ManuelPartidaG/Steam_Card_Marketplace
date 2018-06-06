@@ -191,7 +191,8 @@ public class cardView extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
 
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setPreferredSize(new java.awt.Dimension(700, 400));
+        setMinimumSize(new java.awt.Dimension(690, 470));
+        setPreferredSize(new java.awt.Dimension(1000, 600));
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentResized(java.awt.event.ComponentEvent evt) {
                 windowResizeHandler(evt);
@@ -301,6 +302,7 @@ public class cardView extends javax.swing.JPanel {
         windowResizer.setBounds(814, 444, 20, 20);
 
         mainPanel.setBackground(new java.awt.Color(27, 40, 56));
+        mainPanel.setMinimumSize(new java.awt.Dimension(690, 470));
         mainPanel.setLayout(new java.awt.GridBagLayout());
 
         cardPanel.setBackground(new java.awt.Color(27, 40, 56));
