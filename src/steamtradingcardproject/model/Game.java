@@ -17,4 +17,8 @@ public class Game {
         this.name = name;
         this.appid = appid;
     }
+    public String toString()
+    {
+        return name;
+    }
 }

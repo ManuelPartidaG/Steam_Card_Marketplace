@@ -21,6 +21,7 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.text.JTextComponent;
 import steamtradingcardproject.controller.Controller;
 import steamtradingcardproject.controller.SteamAPI;
 import steamtradingcardproject.model.Card;
@@ -703,6 +704,9 @@ public class cardView extends javax.swing.JPanel {
         db.openHelper();
         resultsComboBox.setModel(new DefaultComboBoxModel(db.filterNumCards(lowNum, upNum, lowPrice, upPrice)));
         db.closeHelper();
+        resultsComboBox.setEditable(true);
+        JTextComponent editor = (JTextComponent) resultsComboBox.getEditor().getEditorComponent();
+        editor.setDocument(new JComboBoxHelper(resultsComboBox));
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void displaySearchedCardsHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_displaySearchedCardsHandler
